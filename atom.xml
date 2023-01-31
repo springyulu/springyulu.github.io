@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Lucky everyday</title>
+  
+  
+  <link href="https://lucky-lcy-best.github.io/atom.xml" rel="self"/>
+  
+  <link href="https://lucky-lcy-best.github.io/"/>
+  <updated>2023-01-31T06:31:25.996Z</updated>
+  <id>https://lucky-lcy-best.github.io/</id>
+  
+  <author>
+    <name>Lucky@ECNU</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>我写技术博客的一些原因</title>
+    <link href="https://lucky-lcy-best.github.io/2023/01/15/wo-xie-ji-zhu-bo-ke-de-yi-xie-yuan-yin/"/>
+    <id>https://lucky-lcy-best.github.io/2023/01/15/wo-xie-ji-zhu-bo-ke-de-yi-xie-yuan-yin/</id>
+    <published>2023-01-15T12:44:23.000Z</published>
+    <updated>2023-01-31T06:31:25.996Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;我写技术博客的原因&quot;&gt;&lt;a href=&quot;#我写技术博客的原因&quot; class=&quot;headerlink&quot; title=&quot;我写技术博客的原因&quot;&gt;&lt;/a&gt;我写技术博客的原因&lt;/h1&gt;&lt;img</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>k8s学习教程(基础配置)--part 1</title>
+    <link href="https://lucky-lcy-best.github.io/2023/01/15/k8s-xue-xi-jiao-cheng-ji-chu-pei-zhi-part-1/"/>
+    <id>https://lucky-lcy-best.github.io/2023/01/15/k8s-xue-xi-jiao-cheng-ji-chu-pei-zhi-part-1/</id>
+    <published>2023-01-15T12:25:42.000Z</published>
+    <updated>2023-01-15T12:28:01.523Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;k8s学习教程（一、初始配置）&quot;&gt;&lt;a href=&quot;#k8s学习教程（一、初始配置）&quot; class=&quot;headerlink&quot; title=&quot;k8s学习教程（一、初始配置）&quot;&gt;&lt;/a&gt;k8s学习教程（一、初始配置）&lt;/h1&gt;&lt;img</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>图床配置及选型</title>
+    <link href="https://lucky-lcy-best.github.io/2023/01/15/tu-chuang-pei-zhi-ji-xuan-xing/"/>
+    <id>https://lucky-lcy-best.github.io/2023/01/15/tu-chuang-pei-zhi-ji-xuan-xing/</id>
+    <published>2023-01-15T12:04:56.000Z</published>
+    <updated>2023-01-15T12:08:54.847Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;图床的基本配置与选型&quot;&gt;&lt;a href=&quot;#图床的基本配置与选型&quot; class=&quot;headerlink&quot; title=&quot;图床的基本配置与选型&quot;&gt;&lt;/a&gt;图床的基本配置与选型&lt;/h1&gt;&lt;p&gt;&lt;img</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>我们的垃圾桶-畅所欲言</title>
+    <link href="https://lucky-lcy-best.github.io/2023/01/14/la-ji-tong-chang-suo-yu-yan/"/>
+    <id>https://lucky-lcy-best.github.io/2023/01/14/la-ji-tong-chang-suo-yu-yan/</id>
+    <published>2023-01-14T10:04:37.000Z</published>
+    <updated>2023-01-15T05:18:43.834Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;垃圾桶-畅所欲言&quot;&gt;&lt;a href=&quot;#垃圾桶-畅所欲言&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>hexo详细制作教程</title>
+    <link href="https://lucky-lcy-best.github.io/2023/01/14/hexo-xiang-xi-zhi-zuo-jiao-cheng/"/>
+    <id>https://lucky-lcy-best.github.io/2023/01/14/hexo-xiang-xi-zhi-zuo-jiao-cheng/</id>
+    <published>2023-01-14T06:35:50.000Z</published>
+    <updated>2023-01-15T07:23:19.641Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;基于Hexo的个人网站制作简明教程&quot;&gt;&lt;a href=&quot;#基于Hexo的个人网站制作简明教程&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+</feed>
