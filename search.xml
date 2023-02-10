@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>文章发布教程</title>
+      <link href="/2023/02/10/wen-zhang-fa-bu-jiao-cheng/"/>
+      <url>/2023/02/10/wen-zhang-fa-bu-jiao-cheng/</url>
+      
+        <content type="html"><![CDATA[<h1 id="文章发布教程"><a href="#文章发布教程" class="headerlink" title="文章发布教程"></a>文章发布教程</h1><p>啊啊啊啊啊 我真该死啊 浪费了一个寒假的时间 啥也没干 负罪感满满</p><p>禁止<code>***emo***</code> 禁止摆烂！！！</p><p>大家一定要把握好时间 长大了才发现时间这个东西真的是一去不复返 拿钱也买不到的东西</p><p>比如我常常回忆我最美好的本科四年生活 很快乐很快乐 可惜再也回不去了</p><p>还有我现在要被数学作业和开学的考试折磨死了 啥也不会 😔</p><h3 id="如何发布一篇文章？"><a href="#如何发布一篇文章？" class="headerlink" title="如何发布一篇文章？"></a>如何发布一篇文章？</h3><p><code>tools</code>：<code>Typora</code>  &amp; <code>VSCode</code></p><p><code>class</code>：<code>markdown</code>（<code>hexo</code> 自动解析为<code>h5</code>页面）</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">命令：hexo new --name [name 是文章名称] 会在_post目录下生成文件名.md文件</span><br><span class="line"></span><br><span class="line">for example：hexo new &quot;文章发布教程&quot;`</span><br></pre></td></tr></table></figure><p><img src="https://luckyblob.oss-cn-shanghai.aliyuncs.com/postimgs/image-20230210130500619.png" class="lazyload placeholder" data-srcset="https://luckyblob.oss-cn-shanghai.aliyuncs.com/postimgs/image-20230210130500619.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="image-20230210130500619"></p><p>可以修改基础信息 如下 比如封面等</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: 文章发布教程</span><br><span class="line">date: 2023-02-10 13:04:33</span><br><span class="line">img: https://luckyblob.oss-cn-shanghai.aliyuncs.com/postimgs/image-20230115200604826.png</span><br><span class="line">tags:</span><br><span class="line">top: true</span><br><span class="line">---</span><br></pre></td></tr></table></figure><p>建议在Typora中写好文章后， <code>ctrl c + ctrl v</code> 记住用<code>picGo + 阿里云</code>上传图片！！！</p><p>写好后直接 <code>hexo g -d</code></p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>我写技术博客的一些原因</title>
       <link href="/2023/01/15/wo-xie-ji-zhu-bo-ke-de-yi-xie-yuan-yin/"/>
       <url>/2023/01/15/wo-xie-ji-zhu-bo-ke-de-yi-xie-yuan-yin/</url>
