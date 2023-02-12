@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>chatgpt使用教程</title>
+      <link href="/2023/02/12/chatgpt-shi-yong-jiao-cheng/"/>
+      <url>/2023/02/12/chatgpt-shi-yong-jiao-cheng/</url>
+      
+        <content type="html"><![CDATA[<h1 id="chatGPT使用教程"><a href="#chatGPT使用教程" class="headerlink" title="chatGPT使用教程"></a>chatGPT使用教程</h1><p><img src="https://luckyblob.oss-cn-shanghai.aliyuncs.com/postimgs/image-20230212211052395.png" class="lazyload placeholder" data-srcset="https://luckyblob.oss-cn-shanghai.aliyuncs.com/postimgs/image-20230212211052395.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="image-20230212211052395"></p><p>前置要求：梯子（自己的不行的话 please contact me）</p><p><code>QQ：2214187440</code></p><p><code>Wechat：lucky_hfut_ecnu</code></p><p>chatgpt官网：<a href="https://openai.com/blog/chatgpt/">https://openai.com/blog/chatgpt/</a></p><p>注册或者使用Google or Microsoft账户登陆即可 （I have used a google account which I have several years ago.）</p><p>当提示此地区不可用或者不提供服务的情况</p><p>梯子改为全局 地区不要选HK，我用的Korea</p><p>修改为全局后，在浏览器地址栏输入如下代码：</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 注意<span class="attr">javascript</span>: 要手动输入 无法复制</span><br><span class="line"><span class="attr">javascript</span>:<span class="variable language_">window</span>.<span class="property">localStorage</span>.<span class="title function_">removeItem</span>(<span class="title class_">Object</span>.<span class="title function_">keys</span>(<span class="variable language_">window</span>.<span class="property">localStorage</span>).<span class="title function_">find</span>(<span class="function"><span class="params">i</span>=&gt;</span>i.<span class="title function_">startsWith</span>(<span class="string">&#x27;@@auth0spajs&#x27;</span>)))</span><br></pre></td></tr></table></figure><p>然后回车 再刷新当前页面即可进入chatgpt短信验证部分</p><p>短信服务购买：<a href="https://sms-activate.org/">https://sms-activate.org/</a></p><p>最近一直在涨价，我选的是马来西亚</p><p>亲测可用 越晚涨价越离谱</p><h5 id="使用案例"><a href="#使用案例" class="headerlink" title="使用案例"></a>使用案例</h5><p><img src="https://luckyblob.oss-cn-shanghai.aliyuncs.com/postimgs/image-20230212210012744.png" class="lazyload placeholder" data-srcset="https://luckyblob.oss-cn-shanghai.aliyuncs.com/postimgs/image-20230212210012744.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="image-20230212210012744"></p><p><code>If you have some qs. You can contact me by QQ | Wechat.</code>(For example, what kind of upn I have used.)</p><p>When you have finished these steps.You can use chatgpt happily now !!!</p><h5 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h5><p>地区不提供服务解决方法：<a href="https://cloud.tencent.com/developer/article/2190198">https://cloud.tencent.com/developer/article/2190198</a></p><p>短信验证解决方案：<a href="https://www.xnbeast.com/create-openai-chatgpt-account/">https://www.xnbeast.com/create-openai-chatgpt-account/</a></p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>文章发布教程</title>
       <link href="/2023/02/10/wen-zhang-fa-bu-jiao-cheng/"/>
       <url>/2023/02/10/wen-zhang-fa-bu-jiao-cheng/</url>
