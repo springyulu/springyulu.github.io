@@ -11,7 +11,7 @@
   <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-  <title>友情链接 | Lucky everyday</title>
+  <title>frp内网穿透教程 | Lucky everyday</title>
 
   <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/favicon.ico">
   <link rel="stylesheet" href="https://at.alicdn.com/t/font_1911880_c1nvbyezg17.css">
@@ -624,17 +624,27 @@
 
 
 <div class="post-detail-header" id="thumbnail_canvas" style="background-repeat: no-repeat; background-size: cover; 
-  background-position: center center;position: relative;background-image:url('/medias/11.jpg')">
+  background-position: center center;position: relative;background-image:url('https://luckyblob.oss-cn-shanghai.aliyuncs.com/postimgs/image-20230218213701529.png')">
   <div class="post-detail-header-mask"></div>
   <canvas id="header_canvas"style="position:absolute;bottom:0;pointer-events:none;"></canvas>
   
   <div class="post-detail-header_info-box">
     <div class="title-box">
       <span class="title">
-        friends
+        frp内网穿透教程
       </span>
     </div>
     
+    
+      
+        <span class="post-detail-header_date">
+          <i class="fas fa-calendar"></i> 发表于：2023-02-18 |
+        </span>
+      
+
+      
+
+      
     
   </div>
   
@@ -652,7 +662,39 @@
   <div class="main-content">
     <article class="post post-detail">
       <div class="post-content">
-        
+        <h1 id="frp搭建内网穿透教程"><a href="#frp搭建内网穿透教程" class="headerlink" title="frp搭建内网穿透教程"></a>frp搭建内网穿透教程</h1><img src="https://luckyblob.oss-cn-shanghai.aliyuncs.com/postimgs/image-20230218213701529.png" class="lazyload placeholder" data-srcset="https://luckyblob.oss-cn-shanghai.aliyuncs.com/postimgs/image-20230218213701529.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="image-20230218213701529" style="zoom:50%;" />
+
+<p>我们用过服务器的同学都知道ssh，就是一个远程连接服务器的协议，如果是对于实验室的电脑则需要在同一局域网下才可以连接。用过阿里云服务器或者腾讯云的同学也知道，这种公网ip的服务器可以直接不受局域网影响即可访问。</p>
+<p>所以可能就有同学想问是否可以把实验室的服务器也弄成公网。答案是：有</p>
+<ul>
+<li>花生壳（不推荐）</li>
+</ul>
+<p><img src="https://luckyblob.oss-cn-shanghai.aliyuncs.com/postimgs/image-20230218212009006.png" class="lazyload placeholder" data-srcset="https://luckyblob.oss-cn-shanghai.aliyuncs.com/postimgs/image-20230218212009006.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="image-20230218212009006"></p>
+<ul>
+<li>frp（推荐）</li>
+</ul>
+<p>1、前提需要一台公网服务器，比如阿里云用来当作frp的服务器端，实验室的电脑则作为客户端。（可借用师兄或者某台作为服务器端）</p>
+<p>frp仓库：<a target="_blank" rel="noopener" href="https://github.com/fatedier/frp">https://github.com/fatedier/frp</a></p>
+<p>下载后解压 <code>tar -zxvf ***.tar.gz</code> 再进入该目录</p>
+<p><code>vim frps.ini</code> 编辑服务器端配置 for example</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[common]</span></span><br><span class="line"><span class="attr">bind_port</span> = <span class="number">7000</span></span><br><span class="line"><span class="attr">dashboard_port</span> = <span class="number">7500</span></span><br><span class="line"><span class="attr">token</span> = <span class="number">123456789</span></span><br><span class="line"><span class="attr">dashboard_user</span> = lucky</span><br><span class="line"><span class="attr">dashboard_pwd</span> = <span class="number">111111111</span>   <span class="comment">#该三部分自己设置</span></span><br></pre></td></tr></table></figure>
+
+<p>2、运行服务器端</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup ./frps -c frps.ini &amp; #建议nohup保持云服务器不关机</span><br></pre></td></tr></table></figure>
+
+<p>3、客户端</p>
+<p>下载过程以及解压过程如上所述</p>
+<p>不同之处：</p>
+<p><code>vim frpc.ini</code></p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[common]</span></span><br><span class="line"><span class="attr">server_addr</span> = ***.***.**.** <span class="comment">#公网ip</span></span><br><span class="line"><span class="attr">server_port</span> = <span class="number">7000</span> <span class="comment">#服务器端口</span></span><br><span class="line"><span class="attr">token</span> = <span class="number">123456789</span></span><br><span class="line"></span><br><span class="line"><span class="section">[ssh]</span></span><br><span class="line"><span class="attr">type</span> = tcp</span><br><span class="line"><span class="attr">local_ip</span> = <span class="number">127.0</span>.<span class="number">0.1</span> <span class="comment">#本地ip</span></span><br><span class="line"><span class="attr">local_port</span> = <span class="number">22</span> <span class="comment">#需要映射的端口</span></span><br><span class="line"><span class="attr">remote_port</span> = <span class="number">222</span> <span class="comment">#映射到公网服务器的哪个端口</span></span><br></pre></td></tr></table></figure>
+
+<p>4、运行</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup ./frpc -c frpc.ini &amp;</span><br></pre></td></tr></table></figure>
+
+<p>5、测试连接即可成功</p>
+<p>参考：</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_49764009/article/details/122018688">https://blog.csdn.net/weixin_49764009/article/details/122018688</a></p>
+
       </div>
       <div class="post-tags-categories">
         
@@ -665,7 +707,7 @@
     </li>
     <li class="post-copyright-link">
     <strong>文章链接:  </strong>
-    <a href="/friends/index.html" target="_blank" title="friends">https://lucky-lcy-best.github.io/friends/index.html</a>
+    <a href="/2023/02/18/frp-nei-wang-chuan-tou-jiao-cheng/" target="_blank" title="frp内网穿透教程">https://lucky-lcy-best.github.io/2023/02/18/frp-nei-wang-chuan-tou-jiao-cheng/</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明:   </strong>
@@ -684,6 +726,25 @@
 
 
 
+
+  
+  <div class="post-nav-next post-nav-item">
+    <div class="post-nav-img" style="background-size: cover; 
+      background-position: center center;">
+      <img class="lazyload lazyload placeholder" src="https://luckyblob.oss-cn-shanghai.aliyuncs.com/postimgs/image-20230212211052395.png" class="lazyload placeholder" data-srcset="https://luckyblob.oss-cn-shanghai.aliyuncs.com/postimgs/image-20230212211052395.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" src="" alt="">
+    </div>
+    <a href="/2023/02/12/chatgpt-shi-yong-jiao-cheng/" class="post-nav-link">
+      <div class="title">
+        下一篇: <i class="fas fa-angle-right"></i>
+        <div class="title-text">chatgpt使用教程</div>
+      </div>
+      <!-- <div class="content">
+        chatGPT使用教程
+前置要求：梯子（自己的不行的话 please contact me）
+QQ：2214187440
+      </div> -->
+    </a>
+  </div>
 
 </div>
 
@@ -970,13 +1031,29 @@
   <div class="layout_sticky">    
     
       
-        
+<section class="widget side_toc">
   
-      
-      
-        
-  
-      
+  <header>
+    
+      <i style="color: " class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+  <div class='content'>
+    <div class="toc-main">
+      <div class="toc-content">
+        <!-- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#frp%E6%90%AD%E5%BB%BA%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F%E6%95%99%E7%A8%8B"><span class="toc-text">frp搭建内网穿透教程</span></a></li></ol> -->
+        <div class="toc"></div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- 手机端目录按钮 -->
+<div id="toc-mobile-btn">
+  <i class="fas fa-list-ul" aria-hidden="true"></i>
+</div>
+
       
   <section class="widget side_recent_post">
     
@@ -1101,156 +1178,6 @@
       </div>
     </div>
   </section>
-
-      
-  <section class="widget side_archives">
-    
-    <header><a style="color: red" href='/archives/'><i class="fas fa-archive fa-fw" aria-hidden="true"></i><span class='name'>归档</span></a></header><div class="content"><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/02/"><span class="card-archive-list-date">二月 2023</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/01/"><span class="card-archive-list-date">一月 2023</span><span class="card-archive-list-count">5</span></a></li></ul></div>
-  </section>
-
-      <section class="widget side_webinfo">
-  
-  <header>
-    
-      <i style="color: " class="fas fa-chart-line fa-fw" aria-hidden="true"></i><span class='name'>站点信息</span>
-    
-  </header>
-
-
-  <div class='content'>
-    <div class="webinfo">
-      
-        <div class="webinfo-item">
-          <div>文章数目：</div>
-          <div>8 篇</div>
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>已运行时间：</div>
-          <div id="webinfo-runtime-count" publish_date="03/24/2020 21:34:09"></div>
-        </div>
-        <script>
-          var BirthDay = new Date(new Date('2020/01/01'));
-          var today = new Date();
-          var timeold = (today.getTime() - BirthDay.getTime());
-          var daysold = Math.floor(timeold / (24 * 60 * 60 * 1000));
-          document.getElementById('webinfo-runtime-count').innerHTML = daysold + ' 天';
-        </script>
-      
-
-
-      
-
-      
-        <div class="webinfo-item">
-          <div>本站访客数：</div>
-          
-          <div><span id="busuanzi_value_site_uv"><i class="fas fa-fan fa-spin fa-fw" aria-hidden="true"></i></span> 人</div>
-          
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>本站总访问量：</div>
-          
-          <div><span id="busuanzi_value_site_pv"><i class="fas fa-fan fa-spin fa-fw" aria-hidden="true"></i></span> 次</div>
-          
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>最后活动时间：</div>
-          
-            <div id="last-update" style="display: none;">Sat Feb 18 2023 21:38:51 GMT+0800 (中国标准时间)</div>
-            <div id="last-update-show">2023-02-18 日</div>
-          
-        </div>
-        
-        <script>
-          function timeago(dateTimeStamp) {
-              var minute = 1000 * 60; //把分，时，天，周，半个月，一个月用毫秒表示
-              var hour = minute * 60;
-              var day = hour * 24;
-              var week = day * 7;
-              var month = day * 30;
-              var now = new Date().getTime(); //获取当前时间毫秒
-              var diffValue = now - dateTimeStamp; //时间差
-              if (diffValue < 0) {
-                  return;
-              }
-              var minC = diffValue / minute; //计算时间差的分，时，天，周，月
-              var hourC = diffValue / hour;
-              var dayC = diffValue / day;
-              var weekC = diffValue / week;
-              var monthC = diffValue / month;
-              if (monthC >= 1 && monthC <= 3) {
-                  result = " " + parseInt(monthC) + " 月前"
-              } else if (weekC >= 1 && weekC <= 3) {
-                  result = " " + parseInt(weekC) + " 周前"
-              } else if (dayC >= 1 && dayC <= 6) {
-                  result = " " + parseInt(dayC) + " 天前"
-              } else if (hourC >= 1 && hourC <= 23) {
-                  result = " " + parseInt(hourC) + " 小时前"
-              } else if (minC >= 1 && minC <= 59) {
-                  result = " " + parseInt(minC) + " 分钟前"
-              } else if (diffValue >= 0 && diffValue <= minute) {
-                  result = "刚刚"
-              } else {
-                  var datetime = new Date();
-                  datetime.setTime(dateTimeStamp);
-                  var Nyear = datetime.getFullYear();
-                  var Nmonth = datetime.getMonth() + 1 < 10 ? "0" + (datetime.getMonth() + 1) : datetime.getMonth() + 1;
-                  var Ndate = datetime.getDate() < 10 ? "0" + datetime.getDate() : datetime.getDate();
-                  var Nhour = datetime.getHours() < 10 ? "0" + datetime.getHours() : datetime.getHours();
-                  var Nminute = datetime.getMinutes() < 10 ? "0" + datetime.getMinutes() : datetime.getMinutes();
-                  var Nsecond = datetime.getSeconds() < 10 ? "0" + datetime.getSeconds() : datetime.getSeconds();
-                  result = Nyear + "-" + Nmonth + "-" + Ndate
-              }
-              return result;
-          }
-          var lastUpDate = document.getElementById('last-update').innerHTML;
-          try {
-            document.getElementById('last-update-show').innerHTML = timeago(new Date(lastUpDate));
-          } catch (error) {
-            document.getElementById('last-update-show').innerHTML = '2023-02-18 日';
-          }
-        </script>
-        
-      
-    </div>
-  </div>
-</section>
-      
-  
-    <div class="widget testWidget" id="testWidget" style="order: -1;background: #fff">
-      <header>
-        
-          <a style="color: #d63130" target="_blank" rel="noopener" href='http://baidu.com'><i class="fab fa-weibo fa-fw" aria-hidden="true"></i><span class='name'>微博热搜</span></a>
-        
-      </header>
-      <div class="content">
-        <div id="myWeibo">
-<!-- 如果不要滚动，则去掉 vue-seamless-scroll标签就行了，这个插件使用cdn向左向右滚动好像有问题 -->
-<vue-seamless-scroll :data="content" :class-option="classOption" class="warp" > <div class="weibo-container" v-for="(item, index) in content" :key="index"> <div class="left"> <div class="order" :class="{ red: index<=2 }">{{index + 1}}</div> <div class="name"><a :href="item.url" target="_blank">{{item.name}}</a></div> </div> <div class="hot">{{item.hot}}</div> </div> </vue-seamless-scroll> </div>
-<script src="/weibo/index.js"></script> <link href="/weibo/index.css" rel="stylesheet"> 
-      </div>
-  </div>
-  
-    <div class="widget historyToday" id="historyToday" style="order: 0;background: #fff">
-      <header>
-        
-          <a style="color: #d63130" target="_blank" rel="noopener" href='http://baidu.com'><i class="fas fa-calendar-week fa-fw" aria-hidden="true"></i><span class='name'>历史上的今天</span></a>
-        
-      </header>
-      <div class="content">
-         <div id="myHistorySwiper" @mouseenter="stopAutoPlay()" @mouseleave="startAutoPlay()"> <swiper class="myhistoryswiper" ref="myhistoryswiper" style="height:80px;" :options="swiperOption"> <swiper-slide v-for="(item, index) in content" :key="index"> {{item}} </swiper-slide> </swiper> </div> <script src="/historyToday/index.js"></script> 
-      </div>
-  </div>
-  
 
     
   </div>
