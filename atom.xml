@@ -6,7 +6,7 @@
   <link href="https://lucky-lcy-best.github.io/atom.xml" rel="self"/>
   
   <link href="https://lucky-lcy-best.github.io/"/>
-  <updated>2023-03-05T02:16:14.129Z</updated>
+  <updated>2023-03-09T10:27:22.664Z</updated>
   <id>https://lucky-lcy-best.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>k8s初体验---nginx(pod)部署并访问</title>
+    <link href="https://lucky-lcy-best.github.io/2023/03/09/k8s-chu-ti-yan-nginx-pod-bu-shu-bing-fang-wen/"/>
+    <id>https://lucky-lcy-best.github.io/2023/03/09/k8s-chu-ti-yan-nginx-pod-bu-shu-bing-fang-wen/</id>
+    <published>2023-03-09T10:26:19.000Z</published>
+    <updated>2023-03-09T10:27:22.664Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;k8s初学习—基于k8s部署nginx&quot;&gt;&lt;a href=&quot;#k8s初学习—基于k8s部署nginx&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="k8s" scheme="https://lucky-lcy-best.github.io/tags/k8s/"/>
+    
+  </entry>
   
   <entry>
     <title>frp内网穿透教程</title>
@@ -63,7 +86,7 @@
     <link href="https://lucky-lcy-best.github.io/2023/01/15/k8s-xue-xi-jiao-cheng-ji-chu-pei-zhi-part-1/"/>
     <id>https://lucky-lcy-best.github.io/2023/01/15/k8s-xue-xi-jiao-cheng-ji-chu-pei-zhi-part-1/</id>
     <published>2023-01-15T12:25:42.000Z</published>
-    <updated>2023-03-05T02:16:14.133Z</updated>
+    <updated>2023-03-09T10:26:59.903Z</updated>
     
     
       
@@ -76,6 +99,8 @@
     
     
     
+    
+    <category term="k8s" scheme="https://lucky-lcy-best.github.io/tags/k8s/"/>
     
   </entry>
   
