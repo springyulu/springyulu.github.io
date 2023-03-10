@@ -6,7 +6,7 @@
   <link href="https://lucky-lcy-best.github.io/atom.xml" rel="self"/>
   
   <link href="https://lucky-lcy-best.github.io/"/>
-  <updated>2023-03-09T10:27:22.664Z</updated>
+  <updated>2023-03-10T01:14:54.050Z</updated>
   <id>https://lucky-lcy-best.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>k8s初体验-minikube突破隔断访问限制(以nginx为例)</title>
+    <link href="https://lucky-lcy-best.github.io/2023/03/10/k8s-chu-ti-yan-minikube-tu-po-ge-duan-fang-wen-xian-zhi-yi-nginx-wei-li/"/>
+    <id>https://lucky-lcy-best.github.io/2023/03/10/k8s-chu-ti-yan-minikube-tu-po-ge-duan-fang-wen-xian-zhi-yi-nginx-wei-li/</id>
+    <published>2023-03-10T01:08:25.000Z</published>
+    <updated>2023-03-10T01:14:54.050Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;minikube部署对外访问配置&quot;&gt;&lt;a href=&quot;#minikube部署对外访问配置&quot; class=&quot;headerlink&quot; title=&quot;minikube部署对外访问配置&quot;&gt;&lt;/a&gt;minikube部署对外访问配置&lt;/h1&gt;&lt;p&gt;我们现在大家都知道了</summary>
+        
+      
+    
+    
+    
+    
+    <category term="k8s" scheme="https://lucky-lcy-best.github.io/tags/k8s/"/>
+    
+  </entry>
   
   <entry>
     <title>k8s初体验---nginx(pod)部署并访问</title>
