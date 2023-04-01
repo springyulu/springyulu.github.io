@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>博客搭建回顾版</title>
+      <link href="/2023/04/01/bo-ke-da-jian-hui-gu-ban/"/>
+      <url>/2023/04/01/bo-ke-da-jian-hui-gu-ban/</url>
+      
+        <content type="html"><![CDATA[<h1 id="博客搭建回顾"><a href="#博客搭建回顾" class="headerlink" title="博客搭建回顾"></a>博客搭建回顾</h1><h2 id="博客初心"><a href="#博客初心" class="headerlink" title="博客初心"></a>博客初心</h2><p>其实我之前喜欢一个人瞎捣鼓这些东西，但是瞎捣鼓嘛，难免会遇到一堆的问题，比如<code>java jar</code>包冲突、<code>frp</code>内网穿透失败原因可能是阿里的云服务器安全组配置被修改了（我昨天就遇到了，气死）…… 因此 我就想着把遇到的一些问题给记录下来，比如在刚开始学习<code>kubernetes</code>的时候，没有比较多的云服务器来建立集群，但是也不想用虚拟机这种古老的玩意儿，所以就给学院发的电脑装了<code>linux</code>(这里感谢王原昭师兄给我的一些帮助）在学习<code>minikube</code>的过程中遇到了一些问题我顺手就给写下来了，所以就想着放到自己的博客上去了。</p><h2 id="技术框架"><a href="#技术框架" class="headerlink" title="技术框架"></a>技术框架</h2><p>博客搭建的框架我选择的是<code>hexo</code>（因为看到师兄用的这个，哈哈哈哈）。其实主要是因为<code>hexo</code>开源，同时也提供了很多的主题供我们选择，可以将我们的代码和配置打包成静态网页，通过<code>github pages</code>来渲染出来，并且省了自己公网映射的步骤，很方便。</p><p>主题就是<code>hexo-theme-bamboo</code>，选择这个主题是因为不光想写博客，还想分享记录一些生活琐碎。</p><h2 id="博客亮点"><a href="#博客亮点" class="headerlink" title="博客亮点"></a>博客亮点</h2><p>并不是单纯的技术博客，同时会在你阅读博客感到疲乏之余在留言板进行吐槽和分享；也可以看看当下的时事热点；也可以欣赏一下我的偶像许嵩的唯美音乐，也可以看看图库好看的照片。</p><h2 id="展望"><a href="#展望" class="headerlink" title="展望"></a>展望</h2><p>可以看见我的博客首页还有我喜欢的歌手的<code>B站MV</code>,还有我的简历和图库等等。所以希望以后在开源领域打下一些基础之后，就通过域名的方式正式搭建一个属于自己的个人网站并开源出来供大家使用。</p><img src="https://luckyblob.oss-cn-shanghai.aliyuncs.com/postimgs/1b41530bbcc911f607dfa29f9d1887f.jpg" class="lazyload placeholder" data-srcset="https://luckyblob.oss-cn-shanghai.aliyuncs.com/postimgs/1b41530bbcc911f607dfa29f9d1887f.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="ECNUeryyds!" style="zoom:50%;" />]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>k8s初体验-minikube突破隔断访问限制(以nginx为例)</title>
       <link href="/2023/03/10/k8s-chu-ti-yan-minikube-tu-po-ge-duan-fang-wen-xian-zhi-yi-nginx-wei-li/"/>
       <url>/2023/03/10/k8s-chu-ti-yan-minikube-tu-po-ge-duan-fang-wen-xian-zhi-yi-nginx-wei-li/</url>

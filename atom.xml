@@ -1,25 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Lucky everyday</title>
+  <title>Spring Rain</title>
   
   
-  <link href="https://chance-rain.github.io/atom.xml" rel="self"/>
+  <link href="https://springyulu.github.io/atom.xml" rel="self"/>
   
-  <link href="https://chance-rain.github.io/"/>
-  <updated>2023-03-10T02:10:41.677Z</updated>
-  <id>https://chance-rain.github.io/</id>
+  <link href="https://springyulu.github.io/"/>
+  <updated>2023-04-01T04:58:49.580Z</updated>
+  <id>https://springyulu.github.io/</id>
   
   <author>
-    <name>Lucky@ECNU</name>
+    <name>springyulu@ECNU</name>
     
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>博客搭建回顾版</title>
+    <link href="https://springyulu.github.io/2023/04/01/bo-ke-da-jian-hui-gu-ban/"/>
+    <id>https://springyulu.github.io/2023/04/01/bo-ke-da-jian-hui-gu-ban/</id>
+    <published>2023-04-01T04:30:18.000Z</published>
+    <updated>2023-04-01T04:58:49.580Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;博客搭建回顾&quot;&gt;&lt;a href=&quot;#博客搭建回顾&quot; class=&quot;headerlink&quot; title=&quot;博客搭建回顾&quot;&gt;&lt;/a&gt;博客搭建回顾&lt;/h1&gt;&lt;h2 id=&quot;博客初心&quot;&gt;&lt;a href=&quot;#博客初心&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
     <title>k8s初体验-minikube突破隔断访问限制(以nginx为例)</title>
-    <link href="https://chance-rain.github.io/2023/03/10/k8s-chu-ti-yan-minikube-tu-po-ge-duan-fang-wen-xian-zhi-yi-nginx-wei-li/"/>
-    <id>https://chance-rain.github.io/2023/03/10/k8s-chu-ti-yan-minikube-tu-po-ge-duan-fang-wen-xian-zhi-yi-nginx-wei-li/</id>
+    <link href="https://springyulu.github.io/2023/03/10/k8s-chu-ti-yan-minikube-tu-po-ge-duan-fang-wen-xian-zhi-yi-nginx-wei-li/"/>
+    <id>https://springyulu.github.io/2023/03/10/k8s-chu-ti-yan-minikube-tu-po-ge-duan-fang-wen-xian-zhi-yi-nginx-wei-li/</id>
     <published>2023-03-10T01:08:25.000Z</published>
     <updated>2023-03-10T02:10:41.677Z</updated>
     
@@ -35,14 +56,14 @@
     
     
     
-    <category term="k8s" scheme="https://chance-rain.github.io/tags/k8s/"/>
+    <category term="k8s" scheme="https://springyulu.github.io/tags/k8s/"/>
     
   </entry>
   
   <entry>
     <title>k8s初体验---nginx(pod)部署并访问</title>
-    <link href="https://chance-rain.github.io/2023/03/09/k8s-chu-ti-yan-nginx-pod-bu-shu-bing-fang-wen/"/>
-    <id>https://chance-rain.github.io/2023/03/09/k8s-chu-ti-yan-nginx-pod-bu-shu-bing-fang-wen/</id>
+    <link href="https://springyulu.github.io/2023/03/09/k8s-chu-ti-yan-nginx-pod-bu-shu-bing-fang-wen/"/>
+    <id>https://springyulu.github.io/2023/03/09/k8s-chu-ti-yan-nginx-pod-bu-shu-bing-fang-wen/</id>
     <published>2023-03-09T10:26:19.000Z</published>
     <updated>2023-03-09T10:27:22.664Z</updated>
     
@@ -58,14 +79,14 @@
     
     
     
-    <category term="k8s" scheme="https://chance-rain.github.io/tags/k8s/"/>
+    <category term="k8s" scheme="https://springyulu.github.io/tags/k8s/"/>
     
   </entry>
   
   <entry>
     <title>frp内网穿透教程</title>
-    <link href="https://chance-rain.github.io/2023/02/18/frp-nei-wang-chuan-tou-jiao-cheng/"/>
-    <id>https://chance-rain.github.io/2023/02/18/frp-nei-wang-chuan-tou-jiao-cheng/</id>
+    <link href="https://springyulu.github.io/2023/02/18/frp-nei-wang-chuan-tou-jiao-cheng/"/>
+    <id>https://springyulu.github.io/2023/02/18/frp-nei-wang-chuan-tou-jiao-cheng/</id>
     <published>2023-02-18T13:34:48.000Z</published>
     <updated>2023-03-05T02:16:14.129Z</updated>
     
@@ -85,8 +106,8 @@
   
   <entry>
     <title>chatgpt使用教程</title>
-    <link href="https://chance-rain.github.io/2023/02/12/chatgpt-shi-yong-jiao-cheng/"/>
-    <id>https://chance-rain.github.io/2023/02/12/chatgpt-shi-yong-jiao-cheng/</id>
+    <link href="https://springyulu.github.io/2023/02/12/chatgpt-shi-yong-jiao-cheng/"/>
+    <id>https://springyulu.github.io/2023/02/12/chatgpt-shi-yong-jiao-cheng/</id>
     <published>2023-02-12T13:08:21.000Z</published>
     <updated>2023-03-05T02:16:14.133Z</updated>
     
@@ -106,8 +127,8 @@
   
   <entry>
     <title>k8s学习教程(基础配置)--part 1</title>
-    <link href="https://chance-rain.github.io/2023/01/15/k8s-xue-xi-jiao-cheng-ji-chu-pei-zhi-part-1/"/>
-    <id>https://chance-rain.github.io/2023/01/15/k8s-xue-xi-jiao-cheng-ji-chu-pei-zhi-part-1/</id>
+    <link href="https://springyulu.github.io/2023/01/15/k8s-xue-xi-jiao-cheng-ji-chu-pei-zhi-part-1/"/>
+    <id>https://springyulu.github.io/2023/01/15/k8s-xue-xi-jiao-cheng-ji-chu-pei-zhi-part-1/</id>
     <published>2023-01-15T12:25:42.000Z</published>
     <updated>2023-03-09T10:26:59.903Z</updated>
     
@@ -123,14 +144,14 @@
     
     
     
-    <category term="k8s" scheme="https://chance-rain.github.io/tags/k8s/"/>
+    <category term="k8s" scheme="https://springyulu.github.io/tags/k8s/"/>
     
   </entry>
   
   <entry>
     <title>图床配置及选型</title>
-    <link href="https://chance-rain.github.io/2023/01/15/tu-chuang-pei-zhi-ji-xuan-xing/"/>
-    <id>https://chance-rain.github.io/2023/01/15/tu-chuang-pei-zhi-ji-xuan-xing/</id>
+    <link href="https://springyulu.github.io/2023/01/15/tu-chuang-pei-zhi-ji-xuan-xing/"/>
+    <id>https://springyulu.github.io/2023/01/15/tu-chuang-pei-zhi-ji-xuan-xing/</id>
     <published>2023-01-15T12:04:56.000Z</published>
     <updated>2023-03-05T02:16:14.133Z</updated>
     
