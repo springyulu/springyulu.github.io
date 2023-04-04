@@ -11,7 +11,7 @@
   <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-  <title>友情链接 | Spring Rain</title>
+  <title>Devops---基于Docker实现GitLab企业开发过程全自动化 | Spring Rain</title>
 
   <link rel="icon" type="image/jpeg" href="https://luckyblob.oss-cn-shanghai.aliyuncs.com/postimgs/1e38b34d7166675a2d78d8e1ae651b6.jpg">
   <link rel="stylesheet" href="https://at.alicdn.com/t/font_1911880_c1nvbyezg17.css">
@@ -624,17 +624,27 @@
 
 
 <div class="post-detail-header" id="thumbnail_canvas" style="background-repeat: no-repeat; background-size: cover; 
-  background-position: center center;position: relative;background-image:url('/medias/11.jpg')">
+  background-position: center center;position: relative;background-image:url('https://luckyblob.oss-cn-shanghai.aliyuncs.com/postimgs/image-20230404213900259.png')">
   <div class="post-detail-header-mask"></div>
   <canvas id="header_canvas"style="position:absolute;bottom:0;pointer-events:none;"></canvas>
   
   <div class="post-detail-header_info-box">
     <div class="title-box">
       <span class="title">
-        friends
+        Devops---基于Docker实现GitLab企业开发过程全自动化
       </span>
     </div>
     
+    
+      
+        <span class="post-detail-header_date">
+          <i class="fas fa-calendar"></i> 发表于：2023-04-04 |
+        </span>
+      
+
+      
+
+      
     
   </div>
   
@@ -652,9 +662,76 @@
   <div class="main-content">
     <article class="post post-detail">
       <div class="post-content">
-        
+        <h1 id="Devops—基于Docker实现GitLab企业开发过程全自动化"><a href="#Devops—基于Docker实现GitLab企业开发过程全自动化" class="headerlink" title="Devops—基于Docker实现GitLab企业开发过程全自动化"></a>Devops—基于Docker实现GitLab企业开发过程全自动化</h1><h2 id="搭建该流程化过程起因"><a href="#搭建该流程化过程起因" class="headerlink" title="搭建该流程化过程起因"></a>搭建该流程化过程起因</h2><p>原项目gitlab仓库所在私服磁盘被docker数据占满，无法访问，容器寄掉了。于是自己动手在自己的私服上不想浪费那1TB的磁盘，于是从0开始完整搭建了gitlab仓库（企业用的比较多）、gitlab-runner（实现Devops的关键）、部署的全过程。下图是GitLab官网的介绍：<a target="_blank" rel="noopener" href="https://about.gitlab.com/">The DevSecOps Platform | GitLab</a></p>
+<p><img src="https://luckyblob.oss-cn-shanghai.aliyuncs.com/postimgs/image-20230404213900259.png" class="lazyload placeholder" data-srcset="https://luckyblob.oss-cn-shanghai.aliyuncs.com/postimgs/image-20230404213900259.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="image-20230404213900259"></p>
+<h2 id="一、搭建gitlab仓库"><a href="#一、搭建gitlab仓库" class="headerlink" title="一、搭建gitlab仓库"></a>一、搭建gitlab仓库</h2><p>首先介绍一下如何搭建gitlab仓库。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">搜索gitlab版本 我一般都用最新版latest</span></span><br><span class="line">docker search gitlab/gitlab-ce</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">拉取镜像</span></span><br><span class="line">docker pull gitlab/gitlab-ce</span><br></pre></td></tr></table></figure>
+
+<p>我没用docker run的命令来启动gitlab，因为我怕忘记命令，所以用的docker-compose.yml文件启动方式。</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">&#x27;3.1&#x27;</span></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">gitlab:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">&#x27;gitlab/gitlab-ce:latest&#x27;</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">gitlab</span></span><br><span class="line">    <span class="attr">restart:</span> <span class="string">always</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="attr">GITLAB_OMNIBUS_CONFIG:</span> <span class="string">|</span></span><br><span class="line"><span class="string">        external_url &#x27;http://ip:8929&#x27; # 此处ip替换为你当前服务器/虚拟机的ip</span></span><br><span class="line"><span class="string">        gitlab_rails[&#x27;gitlab_shell_ssh_port&#x27;] = 2224</span></span><br><span class="line"><span class="string"></span>    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&#x27;8929:8929&#x27;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&#x27;2224:2224&#x27;</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&#x27;./config:/etc/gitlab&#x27;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&#x27;./logs:/var/log/gitlab&#x27;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&#x27;./data:/var/opt/gitlab&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">启动容器</span></span><br><span class="line">docker-compose up -d</span><br></pre></td></tr></table></figure>
+
+<p>注意：刚启动容器初始化比较慢，可能一直访问不了或者报502错误，不要紧张，等一会儿就行了。可以通过下面的命令来查看容器日志。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker logs -f [容器id/容器名]</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://luckyblob.oss-cn-shanghai.aliyuncs.com/postimgs/image-20230404210036687.png" class="lazyload placeholder" data-srcset="https://luckyblob.oss-cn-shanghai.aliyuncs.com/postimgs/image-20230404210036687.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="image-20230404210036687"></p>
+<p>gitlab默认用户名是root，密码需要我们进入gitlab容器内查看</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it gitlab cat /etc/gitlab/initial_root_password</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://luckyblob.oss-cn-shanghai.aliyuncs.com/postimgs/image-20230404210100141.png" class="lazyload placeholder" data-srcset="https://luckyblob.oss-cn-shanghai.aliyuncs.com/postimgs/image-20230404210100141.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="image-20230404210100141"></p>
+<p>登录之后就可以在设置里面修改密码。</p>
+<p>之后就可以完成你想进行的操作了：repo、ci&#x2F;cd等等。</p>
+<h2 id="二、搭建gitlab-runner"><a href="#二、搭建gitlab-runner" class="headerlink" title="二、搭建gitlab-runner"></a>二、搭建gitlab-runner</h2><p>以我们学院的“水杉在线”为例，我们都是在gitlab中国的jihulab进行开发部署，其流程完全符合Devops流程，与很多知名企业的软件开发过程一致，对就业非常有帮助。不过“水杉在线”是基于k8s集群化的分布式架构，比较复杂，此处只介绍单机部署。</p>
+<p>同样 docker安装gitlab-runner</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker search gitlab/gitlab-runner</span><br></pre></td></tr></table></figure>
+
+<p>拉取gitlab-runner镜像</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull gitlab/gitlab-runner</span><br></pre></td></tr></table></figure>
+
+<p>docker-compose.yml启动容器：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">&#x27;3.1&#x27;</span></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">    <span class="attr">runner-guanfang:</span></span><br><span class="line">      <span class="attr">image:</span> <span class="string">gitlab/gitlab-runner:latest</span></span><br><span class="line">      <span class="attr">container_name:</span> <span class="string">gitlab-runner</span></span><br><span class="line">      <span class="attr">restart:</span> <span class="string">always</span></span><br><span class="line">      <span class="attr">privileged:</span> <span class="literal">true</span></span><br><span class="line">      <span class="attr">volumes:</span>        <span class="comment">#务必保证 /home/runner/config有写的权限否则容器启动会失败</span></span><br><span class="line">        <span class="bullet">-</span> <span class="string">./config:/etc/gitlab-runner</span>  <span class="comment">#容器与宿主机runner配置文件挂载，防止容器重启或者recreate数据丢失，这个很重要。</span></span><br><span class="line">        <span class="bullet">-</span> <span class="string">/var/run/docker.sock:/var/run/docker.sock</span> <span class="comment">#用于runner容器共享宿主机的docker，不然在runner容器里起容器端口挂载就会有问题了。解决Docker in Docker的问题。</span></span><br></pre></td></tr></table></figure>
+
+<p>启动容器：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker-compose up -d</span><br></pre></td></tr></table></figure>
+
+<p>gitlab-runner信息注册关联gitlab仓库</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">第一个gitlab-runner是容器名，第二个是image</span></span><br><span class="line">docker exec -it gitlab-runner gitlab-runner register</span><br></pre></td></tr></table></figure>
+
+<p>记下来就是注册信息 需要注意：最后选择docker版本的时候建议：<code>docker:latest</code></p>
+<p><img src="https://img-blog.csdnimg.cn/479335d429e84e679aa410435d5bb080.png" class="lazyload placeholder" data-srcset="https://img-blog.csdnimg.cn/479335d429e84e679aa410435d5bb080.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="img"></p>
+<p>上图是你的gitlab仓库的某个项目的CI&#x2F;CD信息，可以看到URL和token，这是注册时需要的信息。注意注册时会有tags标签，这个在gitlab-ci.yml中需要指定，所以尽量不要乱起名字，需要保持一致，后续也可以在gitlab中修改。</p>
+<h3 id="gitlab-runner-x2F-config关键配置信息修改"><a href="#gitlab-runner-x2F-config关键配置信息修改" class="headerlink" title="gitlab-runner&#x2F;config关键配置信息修改"></a>gitlab-runner&#x2F;config关键配置信息修改</h3><p>在挂载的数据卷目录下：比如gitlab-runner&#x2F;config下有个config.toml文件，修改她。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim config.toml</span><br></pre></td></tr></table></figure>
+
+<p>基本配置如下：</p>
+<figure class="highlight toml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">concurrent</span> = <span class="number">1</span></span><br><span class="line"><span class="attr">check_interval</span> = <span class="number">0</span></span><br><span class="line"><span class="attr">shutdown_timeout</span> = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="section">[session_server]</span></span><br><span class="line">  <span class="attr">session_timeout</span> = <span class="number">1800</span></span><br><span class="line"></span><br><span class="line"><span class="section">[[runners]]</span></span><br><span class="line">  <span class="attr">name</span> = <span class="string">&quot;kirinea&#x27;s gitlab-rnner&quot;</span></span><br><span class="line">  <span class="attr">url</span> = <span class="string">&quot;http://ip:8929/&quot;</span>   <span class="comment"># gitlab的启动URL</span></span><br><span class="line">  <span class="attr">id</span> = <span class="number">1</span></span><br><span class="line">  <span class="attr">token</span> = <span class="string">&quot;************&quot;</span>    <span class="comment"># gitlab仓库ci/cd下runner 的 token</span></span><br><span class="line">  <span class="attr">token_obtained_at</span> = <span class="number">2023</span>-<span class="number">04</span>-<span class="number">03</span>T06:<span class="number">04</span>:<span class="number">11</span>Z</span><br><span class="line">  <span class="attr">token_expires_at</span> = <span class="number">0001</span>-<span class="number">01</span>-<span class="number">01</span>T00:<span class="number">00</span>:<span class="number">00</span>Z</span><br><span class="line">  <span class="attr">executor</span> = <span class="string">&quot;docker&quot;</span></span><br><span class="line">  <span class="section">[runners.cache]</span></span><br><span class="line">    <span class="attr">MaxUploadedArchiveSize</span> = <span class="number">0</span></span><br><span class="line">  <span class="section">[runners.docker]</span></span><br><span class="line">    <span class="attr">privileged</span> = <span class="literal">false</span></span><br><span class="line">    <span class="attr">tls_verify</span> = <span class="literal">false</span></span><br><span class="line">    <span class="attr">image</span> = <span class="string">&quot;docker:latest&quot;</span>    <span class="comment"># Docker in Docker 就按这个来准没错</span></span><br><span class="line">    <span class="attr">disable_entrypoint_overwrite</span> = <span class="literal">false</span></span><br><span class="line">    <span class="attr">oom_kill_disable</span> = <span class="literal">false</span></span><br><span class="line">    <span class="attr">disable_cache</span> = <span class="literal">false</span></span><br><span class="line">    <span class="attr">volumes</span> = [<span class="string">&quot;/cache&quot;</span>, <span class="string">&quot;/var/run/docker.sock:/var/run/docker.sock&quot;</span>, <span class="string">&quot;/usr/bin/docker:/usr/bin/docker&quot;</span>, <span class="string">&quot;/root/.m2:/root/.m2&quot;</span>, <span class="string">&quot;/root/.ssh:/root/.ssh&quot;</span>, <span class="string">&quot;/root/.docker/:/root/.docker/&quot;</span>, <span class="string">&quot;/root/.npm/:/root/.npm/&quot;</span>] <span class="comment">#前提本机需要有安装maven、npm、打开ssh、docker等</span></span><br><span class="line">    <span class="attr">shm_size</span> = <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<p>好了 ，接下来就可以编写你项目的<code>gitlab-ci.yml</code>文件了。</p>
+<p>参考：<a target="_blank" rel="noopener" href="https://developer.aliyun.com/article/719968">Docker安装Gitlab和Gitlab-Runner并实现项目的CICD-阿里云开发者社区 (aliyun.com)</a></p>
+<h2 id="三、结合CI-x2F-CD执行build、deploy等自动化流程"><a href="#三、结合CI-x2F-CD执行build、deploy等自动化流程" class="headerlink" title="三、结合CI&#x2F;CD执行build、deploy等自动化流程"></a>三、结合CI&#x2F;CD执行build、deploy等自动化流程</h2><p><img src="https://luckyblob.oss-cn-shanghai.aliyuncs.com/postimgs/image-20230404212424737.png" class="lazyload placeholder" data-srcset="https://luckyblob.oss-cn-shanghai.aliyuncs.com/postimgs/image-20230404212424737.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="image-20230404212424737"></p>
+<p><img src="https://luckyblob.oss-cn-shanghai.aliyuncs.com/postimgs/image-20230404212457942.png" class="lazyload placeholder" data-srcset="https://luckyblob.oss-cn-shanghai.aliyuncs.com/postimgs/image-20230404212457942.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="image-20230404212457942"></p>
+<h2 id="gitlab-ci-yml-和-Dockerfile-写法注意"><a href="#gitlab-ci-yml-和-Dockerfile-写法注意" class="headerlink" title="gitlab-ci.yml 和 Dockerfile 写法注意"></a>gitlab-ci.yml 和 Dockerfile 写法注意</h2><p>我们可以把ci&#x2F;cd当作一个大的脚本服务，里面可以打包镜像，执行docker build上传镜像，这里建议私有库，比如阿里云。</p>
+<p>流程一般如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">docker build</span><br><span class="line">docker tag</span><br><span class="line">docker push</span><br><span class="line">docker rmi</span><br></pre></td></tr></table></figure>
+
+<p>在gitlab-ci.yml一般分为多个stage：build、test、deploy、cleanup</p>
+<p>根据自己需求编写script。</p>
+<p>一般build阶段如上所述，deploy阶段通过类似于<code>ssh ip bash ***.sh</code>的脚本（前提是将runner所在服务器的ssh公钥放入目标部署服务器的可信公钥） ，这个脚本一般是</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker pull、</span><br><span class="line">docker-compose up -d</span><br><span class="line">等等等等启动容器以及微服务注册中心等工具</span><br></pre></td></tr></table></figure>
+
+<p><strong>以上就是大致的整个过程 非常有意思和有意义</strong></p>
+
       </div>
       <div class="post-tags-categories">
+        
+        <div class="tags">
+          
+            <a href="/tags/Devops/" class="">
+              Devops
+            </a>
+          
+        </div>
         
       </div>
       
@@ -665,7 +742,7 @@
     </li>
     <li class="post-copyright-link">
     <strong>文章链接:  </strong>
-    <a href="/friends/index.html" target="_blank" title="friends">https://springyulu.github.io/friends/index.html</a>
+    <a href="/2023/04/04/dan-ji-bu-shu-gitlab-gitlab-runner-shi-xian-devops-liu-cheng-hua-ruan-jian-kai-fa-guo-cheng/" target="_blank" title="Devops---基于Docker实现GitLab企业开发过程全自动化">https://springyulu.github.io/2023/04/04/dan-ji-bu-shu-gitlab-gitlab-runner-shi-xian-devops-liu-cheng-hua-ruan-jian-kai-fa-guo-cheng/</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明:   </strong>
@@ -684,6 +761,23 @@
 
 
 
+
+  
+  <div class="post-nav-next post-nav-item">
+    <div class="post-nav-img" style="background-size: cover; 
+      background-position: center center;">
+      <img class="lazyload lazyload placeholder" src="https://luckyblob.oss-cn-shanghai.aliyuncs.com/postimgs/1b41530bbcc911f607dfa29f9d1887f.jpg" class="lazyload placeholder" data-srcset="https://luckyblob.oss-cn-shanghai.aliyuncs.com/postimgs/1b41530bbcc911f607dfa29f9d1887f.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" src="" alt="">
+    </div>
+    <a href="/2023/04/01/bo-ke-da-jian-hui-gu-ban/" class="post-nav-link">
+      <div class="title">
+        下一篇: <i class="fas fa-angle-right"></i>
+        <div class="title-text">博客搭建回顾版</div>
+      </div>
+      <!-- <div class="content">
+        博客搭建回顾博客初心其实我之前喜欢一个人瞎捣鼓这些东西，但是瞎捣鼓嘛，难免会遇到一堆的问题，比如java jar包冲突、
+      </div> -->
+    </a>
+  </div>
 
 </div>
 
@@ -887,27 +981,29 @@
   <div class="layout_sticky">    
     
       
-        
+<section class="widget side_toc">
   
-      
-      
-        
-<section class="widget side_tagcloud">
-    
   <header>
     
-      <a style="color: " href='/tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
+      <i style="color: " class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
     
   </header>
 
 
-    <div class='content'>
-    <a href="/tags/Devops/" style="font-size: 14px; color: #999">Devops</a> <a href="/tags/config/" style="font-size: 14px; color: #999">config</a> <a href="/tags/k8s/" style="font-size: 24px; color: #555">k8s</a>
+  <div class='content'>
+    <div class="toc-main">
+      <div class="toc-content">
+        <!-- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Devops%E2%80%94%E5%9F%BA%E4%BA%8EDocker%E5%AE%9E%E7%8E%B0GitLab%E4%BC%81%E4%B8%9A%E5%BC%80%E5%8F%91%E8%BF%87%E7%A8%8B%E5%85%A8%E8%87%AA%E5%8A%A8%E5%8C%96"><span class="toc-text">Devops—基于Docker实现GitLab企业开发过程全自动化</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%90%AD%E5%BB%BA%E8%AF%A5%E6%B5%81%E7%A8%8B%E5%8C%96%E8%BF%87%E7%A8%8B%E8%B5%B7%E5%9B%A0"><span class="toc-text">搭建该流程化过程起因</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E6%90%AD%E5%BB%BAgitlab%E4%BB%93%E5%BA%93"><span class="toc-text">一、搭建gitlab仓库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E6%90%AD%E5%BB%BAgitlab-runner"><span class="toc-text">二、搭建gitlab-runner</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#gitlab-runner-x2F-config%E5%85%B3%E9%94%AE%E9%85%8D%E7%BD%AE%E4%BF%A1%E6%81%AF%E4%BF%AE%E6%94%B9"><span class="toc-text">gitlab-runner&#x2F;config关键配置信息修改</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E7%BB%93%E5%90%88CI-x2F-CD%E6%89%A7%E8%A1%8Cbuild%E3%80%81deploy%E7%AD%89%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%81%E7%A8%8B"><span class="toc-text">三、结合CI&#x2F;CD执行build、deploy等自动化流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#gitlab-ci-yml-%E5%92%8C-Dockerfile-%E5%86%99%E6%B3%95%E6%B3%A8%E6%84%8F"><span class="toc-text">gitlab-ci.yml 和 Dockerfile 写法注意</span></a></li></ol></li></ol> -->
+        <div class="toc"></div>
+      </div>
     </div>
+  </div>
 </section>
+<!-- 手机端目录按钮 -->
+<div id="toc-mobile-btn">
+  <i class="fas fa-list-ul" aria-hidden="true"></i>
+</div>
 
-  
-      
       
   <section class="widget side_recent_post">
     
@@ -1032,156 +1128,6 @@
       </div>
     </div>
   </section>
-
-      
-  <section class="widget side_archives">
-    
-    <header><a style="color: red" href='/archives/'><i class="fas fa-archive fa-fw" aria-hidden="true"></i><span class='name'>归档</span></a></header><div class="content"><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/04/"><span class="card-archive-list-date">四月 2023</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/03/"><span class="card-archive-list-date">三月 2023</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/02/"><span class="card-archive-list-date">二月 2023</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/01/"><span class="card-archive-list-date">一月 2023</span><span class="card-archive-list-count">2</span></a></li></ul></div>
-  </section>
-
-      <section class="widget side_webinfo">
-  
-  <header>
-    
-      <i style="color: " class="fas fa-chart-line fa-fw" aria-hidden="true"></i><span class='name'>站点信息</span>
-    
-  </header>
-
-
-  <div class='content'>
-    <div class="webinfo">
-      
-        <div class="webinfo-item">
-          <div>文章数目：</div>
-          <div>8 篇</div>
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>已运行时间：</div>
-          <div id="webinfo-runtime-count" publish_date="03/24/2020 21:34:09"></div>
-        </div>
-        <script>
-          var BirthDay = new Date(new Date('2020/01/01'));
-          var today = new Date();
-          var timeold = (today.getTime() - BirthDay.getTime());
-          var daysold = Math.floor(timeold / (24 * 60 * 60 * 1000));
-          document.getElementById('webinfo-runtime-count').innerHTML = daysold + ' 天';
-        </script>
-      
-
-
-      
-
-      
-        <div class="webinfo-item">
-          <div>本站访客数：</div>
-          
-          <div><span id="busuanzi_value_site_uv"><i class="fas fa-fan fa-spin fa-fw" aria-hidden="true"></i></span> 人</div>
-          
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>本站总访问量：</div>
-          
-          <div><span id="busuanzi_value_site_pv"><i class="fas fa-fan fa-spin fa-fw" aria-hidden="true"></i></span> 次</div>
-          
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>最后活动时间：</div>
-          
-            <div id="last-update" style="display: none;">Tue Apr 04 2023 21:41:30 GMT+0800 (中国标准时间)</div>
-            <div id="last-update-show">2023-04-04 日</div>
-          
-        </div>
-        
-        <script>
-          function timeago(dateTimeStamp) {
-              var minute = 1000 * 60; //把分，时，天，周，半个月，一个月用毫秒表示
-              var hour = minute * 60;
-              var day = hour * 24;
-              var week = day * 7;
-              var month = day * 30;
-              var now = new Date().getTime(); //获取当前时间毫秒
-              var diffValue = now - dateTimeStamp; //时间差
-              if (diffValue < 0) {
-                  return;
-              }
-              var minC = diffValue / minute; //计算时间差的分，时，天，周，月
-              var hourC = diffValue / hour;
-              var dayC = diffValue / day;
-              var weekC = diffValue / week;
-              var monthC = diffValue / month;
-              if (monthC >= 1 && monthC <= 3) {
-                  result = " " + parseInt(monthC) + " 月前"
-              } else if (weekC >= 1 && weekC <= 3) {
-                  result = " " + parseInt(weekC) + " 周前"
-              } else if (dayC >= 1 && dayC <= 6) {
-                  result = " " + parseInt(dayC) + " 天前"
-              } else if (hourC >= 1 && hourC <= 23) {
-                  result = " " + parseInt(hourC) + " 小时前"
-              } else if (minC >= 1 && minC <= 59) {
-                  result = " " + parseInt(minC) + " 分钟前"
-              } else if (diffValue >= 0 && diffValue <= minute) {
-                  result = "刚刚"
-              } else {
-                  var datetime = new Date();
-                  datetime.setTime(dateTimeStamp);
-                  var Nyear = datetime.getFullYear();
-                  var Nmonth = datetime.getMonth() + 1 < 10 ? "0" + (datetime.getMonth() + 1) : datetime.getMonth() + 1;
-                  var Ndate = datetime.getDate() < 10 ? "0" + datetime.getDate() : datetime.getDate();
-                  var Nhour = datetime.getHours() < 10 ? "0" + datetime.getHours() : datetime.getHours();
-                  var Nminute = datetime.getMinutes() < 10 ? "0" + datetime.getMinutes() : datetime.getMinutes();
-                  var Nsecond = datetime.getSeconds() < 10 ? "0" + datetime.getSeconds() : datetime.getSeconds();
-                  result = Nyear + "-" + Nmonth + "-" + Ndate
-              }
-              return result;
-          }
-          var lastUpDate = document.getElementById('last-update').innerHTML;
-          try {
-            document.getElementById('last-update-show').innerHTML = timeago(new Date(lastUpDate));
-          } catch (error) {
-            document.getElementById('last-update-show').innerHTML = '2023-04-04 日';
-          }
-        </script>
-        
-      
-    </div>
-  </div>
-</section>
-      
-  
-    <div class="widget testWidget" id="testWidget" style="order: -1;background: #fff">
-      <header>
-        
-          <a style="color: #d63130" target="_blank" rel="noopener" href='http://baidu.com'><i class="fab fa-weibo fa-fw" aria-hidden="true"></i><span class='name'>微博热搜</span></a>
-        
-      </header>
-      <div class="content">
-        <div id="myWeibo">
-<!-- 如果不要滚动，则去掉 vue-seamless-scroll标签就行了，这个插件使用cdn向左向右滚动好像有问题 -->
-<vue-seamless-scroll :data="content" :class-option="classOption" class="warp" > <div class="weibo-container" v-for="(item, index) in content" :key="index"> <div class="left"> <div class="order" :class="{ red: index<=2 }">{{index + 1}}</div> <div class="name"><a :href="item.url" target="_blank">{{item.name}}</a></div> </div> <div class="hot">{{item.hot}}</div> </div> </vue-seamless-scroll> </div>
-<script src="/weibo/index.js"></script> <link href="/weibo/index.css" rel="stylesheet"> 
-      </div>
-  </div>
-  
-    <div class="widget historyToday" id="historyToday" style="order: 0;background: #fff">
-      <header>
-        
-          <a style="color: #d63130" target="_blank" rel="noopener" href='http://baidu.com'><i class="fas fa-calendar-week fa-fw" aria-hidden="true"></i><span class='name'>历史上的今天</span></a>
-        
-      </header>
-      <div class="content">
-         <div id="myHistorySwiper" @mouseenter="stopAutoPlay()" @mouseleave="startAutoPlay()"> <swiper class="myhistoryswiper" ref="myhistoryswiper" style="height:80px;" :options="swiperOption"> <swiper-slide v-for="(item, index) in content" :key="index"> {{item}} </swiper-slide> </swiper> </div> <script src="/historyToday/index.js"></script> 
-      </div>
-  </div>
-  
 
     
   </div>
