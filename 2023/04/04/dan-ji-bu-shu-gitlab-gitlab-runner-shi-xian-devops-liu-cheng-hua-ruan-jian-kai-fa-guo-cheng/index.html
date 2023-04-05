@@ -699,7 +699,7 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">第一个gitlab-runner是容器名，第二个是image</span></span><br><span class="line">docker exec -it gitlab-runner gitlab-runner register</span><br></pre></td></tr></table></figure>
 
 <p>记下来就是注册信息 需要注意：最后选择docker版本的时候建议：<code>docker:latest</code></p>
-<p><img src="https://img-blog.csdnimg.cn/479335d429e84e679aa410435d5bb080.png" class="lazyload placeholder" data-srcset="https://img-blog.csdnimg.cn/479335d429e84e679aa410435d5bb080.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="img"></p>
+<p><img src="https://luckyblob.oss-cn-shanghai.aliyuncs.com/postimgs/479335d429e84e679aa410435d5bb080.png" class="lazyload placeholder" data-srcset="https://luckyblob.oss-cn-shanghai.aliyuncs.com/postimgs/479335d429e84e679aa410435d5bb080.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="img"></p>
 <p>上图是你的gitlab仓库的某个项目的CI&#x2F;CD信息，可以看到URL和token，这是注册时需要的信息。注意注册时会有tags标签，这个在gitlab-ci.yml中需要指定，所以尽量不要乱起名字，需要保持一致，后续也可以在gitlab中修改。</p>
 <h3 id="gitlab-runner-x2F-config关键配置信息修改"><a href="#gitlab-runner-x2F-config关键配置信息修改" class="headerlink" title="gitlab-runner&#x2F;config关键配置信息修改"></a>gitlab-runner&#x2F;config关键配置信息修改</h3><p>在挂载的数据卷目录下：比如gitlab-runner&#x2F;config下有个config.toml文件，修改她。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim config.toml</span><br></pre></td></tr></table></figure>
