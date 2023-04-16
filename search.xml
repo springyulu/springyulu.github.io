@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>基于Docker和vsftpd协议搭建FTP服务器</title>
+      <link href="/2023/04/16/ftp-deploy-by-docker/"/>
+      <url>/2023/04/16/ftp-deploy-by-docker/</url>
+      
+        <content type="html"><![CDATA[<h2 id="FTP内置服务器搭建"><a href="#FTP内置服务器搭建" class="headerlink" title="FTP内置服务器搭建"></a>FTP内置服务器搭建</h2><p>注意端口映射2020 -&gt; 20；2121 -&gt; 2121（如果你的20和21端口被占用的话）</p><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">&#x27;3&#x27;</span></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">vsftpd:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">fauria/vsftpd</span></span><br><span class="line">    <span class="attr">restart:</span> <span class="string">always</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">ftp_for_kirin</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;2020:20&quot;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;2121:21&quot;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;21100-21110:21100-21110&quot;</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">./files:/home/vsftpd</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">FTP_USER=admin</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">FTP_PASS=admin</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">PASV_ADDRESS=127.0.0.1</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">PASV_MIN_PORT=21100</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">PASV_MAX_PORT=21110</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">LOG_STDOUT=true</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">LOG_STDERR=true</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">LOG_FILE=/var/log/vsftpd.log</span></span><br></pre></td></tr></table></figure><p>文件存储目录在宿主机的<code>/work/docker/ftp/files/kirin/</code></p><p>用户名和密码自己设置即可</p><p><code>PASV_ADDRESS</code>为自己的宿主机<code>ip</code></p><p>测试成功与否：<code>MobaXTerm</code>或者<code>xftp</code>这类终端工具，可以连接上并且上传文件正常即搭建成功。</p><p><img src="https://luckyblob.oss-cn-shanghai.aliyuncs.com/postimgs/image-20230416164014862.png" class="lazyload placeholder" data-srcset="https://luckyblob.oss-cn-shanghai.aliyuncs.com/postimgs/image-20230416164014862.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="image-20230416164014862"></p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> Docker </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Devops---基于Docker实现GitLab企业开发过程全自动化</title>
       <link href="/2023/04/04/dan-ji-bu-shu-gitlab-gitlab-runner-shi-xian-devops-liu-cheng-hua-ruan-jian-kai-fa-guo-cheng/"/>
       <url>/2023/04/04/dan-ji-bu-shu-gitlab-gitlab-runner-shi-xian-devops-liu-cheng-hua-ruan-jian-kai-fa-guo-cheng/</url>

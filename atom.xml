@@ -6,7 +6,7 @@
   <link href="https://springyulu.github.io/atom.xml" rel="self"/>
   
   <link href="https://springyulu.github.io/"/>
-  <updated>2023-04-05T02:37:58.953Z</updated>
+  <updated>2023-04-16T08:42:14.008Z</updated>
   <id>https://springyulu.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>基于Docker和vsftpd协议搭建FTP服务器</title>
+    <link href="https://springyulu.github.io/2023/04/16/ftp-deploy-by-docker/"/>
+    <id>https://springyulu.github.io/2023/04/16/ftp-deploy-by-docker/</id>
+    <published>2023-04-16T08:37:40.000Z</published>
+    <updated>2023-04-16T08:42:14.008Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;FTP内置服务器搭建&quot;&gt;&lt;a href=&quot;#FTP内置服务器搭建&quot; class=&quot;headerlink&quot; title=&quot;FTP内置服务器搭建&quot;&gt;&lt;/a&gt;FTP内置服务器搭建&lt;/h2&gt;&lt;p&gt;注意端口映射2020 -&amp;gt; 20；2121 -&amp;gt;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="Docker" scheme="https://springyulu.github.io/tags/Docker/"/>
+    
+  </entry>
   
   <entry>
     <title>Devops---基于Docker实现GitLab企业开发过程全自动化</title>
