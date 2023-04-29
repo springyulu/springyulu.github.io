@@ -11,7 +11,7 @@
   <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-  <title>“水杉在线”集成RocketMQ(一、部署及测试) | Spring Rain</title>
+  <title>标签: 中间件 | Spring Rain</title>
 
   <link rel="icon" type="image/jpeg" href="https://luckyblob.oss-cn-shanghai.aliyuncs.com/postimgs/1e38b34d7166675a2d78d8e1ae651b6.jpg">
   <link rel="stylesheet" href="https://at.alicdn.com/t/font_1911880_c1nvbyezg17.css">
@@ -611,651 +611,105 @@
 </header>
         <!-- 内容区域 -->
         
- <!-- prismjs 代码高亮 -->
- 
 
+<div class="bg-dark-floor" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -2;"></div>
+<div class="bg-light-floor-tagDetail" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -3;"></div>
 
-<div class="bg-dark-floor" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -1;"></div>
-
-
-  <!-- 文章详情页顶部图片和标题 -->
-
-
-
-
-<div class="post-detail-header" id="thumbnail_canvas" style="background-repeat: no-repeat; background-size: cover; 
-  background-position: center center;position: relative;background-image:url('https://luckyblob.oss-cn-shanghai.aliyuncs.com/postimgs/image-20230429164844795.png')">
-  <div class="post-detail-header-mask"></div>
-  <canvas id="header_canvas"style="position:absolute;bottom:0;pointer-events:none;"></canvas>
+<div class="tag-header" style="background-image: url('https://pic1.zhimg.com/80/v2-604a15cef201cf177943af2d915eb2e7_1440w.jpg?source=1940ef5c');">
+  <div class="tag-header-title">
+    tag
+  </div>
+  <div class="tag-header-desc">
   
-  <div class="post-detail-header_info-box">
-    <div class="title-box">
-      <span class="title">
-        “水杉在线”集成RocketMQ(一、部署及测试)
-      </span>
-    </div>
-    
-    
-      
-        <span class="post-detail-header_date">
-          <i class="fas fa-calendar"></i> 发表于：2023-04-29 |
-        </span>
-      
-
-      
-
-      
+    <span class="title" id="tag-header-desc"></span>
+    <script>
+  function typedFn() {
+    const el = '#tag-header-desc';
+    const type = 'tagDetail';
+    let desc = '愿你如风，被人温柔以待'
+    var typed = new Typed(el, {
+      strings: [desc],
+      startDelay: 100,
+      typeSpeed: 100,
+      loop: true,
+      backSpeed: 50,
+      showCursor: true
+    });
+  }
+  typedFn();
+</script>
     
   </div>
-  
-  
-    <script src="/js/bubble/bubble.js"></script>
-  
+  <div class="mask-box"></div>
 </div>
 
 
 
+<div class="tag">
+  <div class="tag-name">
+    <div class="name" style="background-color: #F5EEF8;">中间件 分类</div>
+  </div>
+  <!-- 每一篇文章卡片 -->
+  <!-- hash算法 -->
+
+<section class="posts">
+  
+    
+    <article class="post reveal" style="flex-direction: row-reverse;   ">
+      <div class="post-main">
+        <div class="post-info">
+          <div class="post-time">
+            <i class="fas fa-clock" aria-hidden="true"></i>
+            <span class="post-time">2023-04-29</span>
+          </div>
+          <div class="post-title">
+            <a class="post-title-link" href="/2023/04/29/shui-shan-zai-xian-ji-cheng-rocketmq-yi-bu-shu-ji-ce-shi/">“水杉在线”集成RocketMQ(一、部署及测试)</a>
+          </div>
+          <div class="post-meta">
+            <div class="post-tags">
+              <!-- 文章详情页的标签 -->
+
+    <i class="iconfont icontag"></i>
+    <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/" rel="tag">中间件</a></li></ul>
+
+            </div>
+            <div class="post-categories">
+              <!-- 文章详情页的分类 -->
 
 
-<div class="post-detail-content post-row" 
-  style="padding-top: 0px;">
-  <div class="main-content">
-    <article class="post post-detail">
-      <div class="post-content">
-        <h1 id="“水杉在线”-RocketMQ集成（一、部署及测试）"><a href="#“水杉在线”-RocketMQ集成（一、部署及测试）" class="headerlink" title="“水杉在线”-RocketMQ集成（一、部署及测试）"></a>“水杉在线”-<code>RocketMQ</code>集成（一、部署及测试）</h1><h2 id="1、拉取镜像"><a href="#1、拉取镜像" class="headerlink" title="1、拉取镜像"></a>1、拉取镜像</h2><p>这里我们选择了前两天刚刚发布的最新版本5.1.0版本，听说有很多提升，相比于版本4来说。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">拉取rocketmq</span> </span><br><span class="line">docker pull apache/rocketmq:5.1.0</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">拉取rocketmq-dashboard</span></span><br><span class="line">docker pull styletang/rocketmq-console-ng:latest</span><br></pre></td></tr></table></figure>
-
-<h2 id="2、环境配置"><a href="#2、环境配置" class="headerlink" title="2、环境配置"></a>2、环境配置</h2><p>目前本地以及测试环境主要是单机部署 ，因此<code>namesrv</code>和<code>broker</code>都部署在一个机器上，同时请注意端口映射以及防火墙以及数据卷挂载的目录，以及<code>broker</code>的配置文件，同时<code>command</code>命令注意使<code>broker.conf</code>配置生效。对于内存分配如果是生产环境尽量大一些，比如<code>8G</code>起步。</p>
-<p>**注意执行 <code>chmod 777 -R your_rocketmq_dir</code>给你挂载的数据卷写入的权限，否则日志和数据等写不进来。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">version: &quot;3&quot;</span><br><span class="line">services:</span><br><span class="line">  namesrv:</span><br><span class="line">    image: apache/rocketmq:5.1.0</span><br><span class="line">    container_name: rocketmq-namesrv</span><br><span class="line">    ports:</span><br><span class="line">      - &quot;9876:9876&quot;</span><br><span class="line">    environment:</span><br><span class="line">      JAVA_OPT: -server -Xms2g -Xmx2g -Xmn1g</span><br><span class="line">    command: sh mqnamesrv</span><br><span class="line">    volumes:</span><br><span class="line">      - your_namesrv_logs_dir:/home/rocketmq/logs/rocketmqlogs</span><br><span class="line"></span><br><span class="line">  broker:</span><br><span class="line">    image: apache/rocketmq:5.1.0</span><br><span class="line">    container_name: rocketmq-broker</span><br><span class="line">    ports:</span><br><span class="line">      - &quot;10911:10911&quot;</span><br><span class="line">      - &quot;10909:10909&quot;</span><br><span class="line">      - &quot;10912:10912&quot;</span><br><span class="line">    environment:</span><br><span class="line">      JAVA_OPT_EXT: -server -Xms2g -Xmx2g -Xmn1g</span><br><span class="line">    command: sh mqbroker -n rocketmq-namesrv:9876 -c /home/rocketmq/rocketmq-5.1.0/conf/broker.conf</span><br><span class="line">    depends_on:</span><br><span class="line">      - namesrv</span><br><span class="line">    volumes:</span><br><span class="line">      - .your_broker_conf_dir:/home/rocketmq/rocketmq-5.1.0/conf/broker.conf</span><br><span class="line">      - your_namesrv_logs_dir:/home/rocketmq/logs/rocketmqlogs</span><br><span class="line">      - your_namesrv_store_dir:/home/rocketmq/store</span><br><span class="line"></span><br><span class="line">  dashboard:</span><br><span class="line">    image: styletang/rocketmq-console-ng:latest</span><br><span class="line">    container_name: rocketmq-dashboard</span><br><span class="line">    ports:</span><br><span class="line">      - &quot;8086:8080&quot;</span><br><span class="line">    environment:</span><br><span class="line">      - rocketmq.config.namesrvAddr=rocketmq-namesrv:9876</span><br></pre></td></tr></table></figure>
-
-<h2 id="3、启动RocketMQ"><a href="#3、启动RocketMQ" class="headerlink" title="3、启动RocketMQ"></a>3、启动<code>RocketMQ</code></h2><p>请注意使用<code>docker-compose up -d</code>来启动，在<code>broker.conf</code>中建议明确<code>brokerIP</code></p>
-<p><code>broker.conf</code>配置如下：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">brokerClusterName = DefaultCluster</span><br><span class="line">brokerName = broker-a </span><br><span class="line">brokerId = 0</span><br><span class="line">deleteWhen = 04</span><br><span class="line">fileReservedTime = 48</span><br><span class="line">brokerRole = ASYNC_MASTER</span><br><span class="line">flushDiskType = ASYNC_FLUSH</span><br><span class="line">brokerIP1 = your_broker_ip # 这个ip一般就是你宿主机的外网ip 不要localhost/127.0.0.1 可能在springboot测试							时无法连接</span><br><span class="line">listenPort = 10911</span><br><span class="line">autoCreateTopicEnable = true</span><br><span class="line">autoCreateSubscriptionGroup = true</span><br></pre></td></tr></table></figure>
-
-<p>启动成功后可以通过<code>docker logs -f [container_id] </code>查看相关日志 确定是否成功</p>
-<p>也可以通过<code>dashboard</code>来进行测试，如下图所示：</p>
-<p><img src="https://luckyblob.oss-cn-shanghai.aliyuncs.com/postimgs/image-20230429163335112.png" class="lazyload placeholder" data-srcset="https://luckyblob.oss-cn-shanghai.aliyuncs.com/postimgs/image-20230429163335112.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="image-20230429163335112"></p>
-<p>你可以通过这个<code>dashboard</code>来进行一些消息的生产和消费以确定是否可以正常收发消息。</p>
-<h2 id="4、SpringCloud整合RocketMQ"><a href="#4、SpringCloud整合RocketMQ" class="headerlink" title="4、SpringCloud整合RocketMQ"></a>4、<code>SpringCloud</code>整合<code>RocketMQ</code></h2><h3 id="4-1、pom-xml引入依赖"><a href="#4-1、pom-xml引入依赖" class="headerlink" title="4.1、pom.xml引入依赖"></a>4.1、pom.xml引入依赖</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.rocketmq<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>rocketmq-client<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>4.9.4<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.rocketmq<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>rocketmq-spring-boot-starter<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.2.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="4-2、application-yml中配置基本变量"><a href="#4-2、application-yml中配置基本变量" class="headerlink" title="4.2、application.yml中配置基本变量"></a>4.2、application.yml中配置基本变量</h3><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">mq:</span></span><br><span class="line">  <span class="attr">topic:</span> <span class="string">your_topic</span></span><br><span class="line">  <span class="attr">consumer:</span></span><br><span class="line">    <span class="attr">group:</span> <span class="string">your-consumer-group</span></span><br><span class="line">    <span class="attr">retry-times-when-send-failed:</span> <span class="number">5</span></span><br><span class="line">    <span class="attr">send-message-timeout:</span> <span class="number">50000</span> <span class="comment"># timeout建议给大一点儿 要不然报错</span></span><br><span class="line"></span><br><span class="line"><span class="attr">rocketmq:</span></span><br><span class="line">  <span class="attr">name-server:</span> <span class="string">namesrvIP:9876</span> <span class="comment"># IP是你部署的</span></span><br><span class="line">  <span class="attr">producer:</span></span><br><span class="line">    <span class="attr">group:</span> <span class="string">your-producer-group</span></span><br><span class="line">    <span class="attr">retry-times-when-send-failed:</span> <span class="number">5</span></span><br><span class="line">    <span class="attr">send-message-timeout:</span> <span class="number">50000</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="4-3、生产者连接并发送消息"><a href="#4-3、生产者连接并发送消息" class="headerlink" title="4.3、生产者连接并发送消息"></a>4.3、生产者连接并发送消息</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">testMQProducer</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="type">String</span> <span class="variable">message</span> <span class="operator">=</span> <span class="string">&quot;Hello World&quot;</span>;</span><br><span class="line">    rocketMQTemplate.convertAndSend(<span class="string">&quot;shuishan-dev&quot;</span>,message);</span><br><span class="line">    System.out.println(<span class="string">&quot;消息发送成功&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://luckyblob.oss-cn-shanghai.aliyuncs.com/postimgs/image-20230429164026706.png" class="lazyload placeholder" data-srcset="https://luckyblob.oss-cn-shanghai.aliyuncs.com/postimgs/image-20230429164026706.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="image-20230429164026706"></p>
-<h3 id="4-4、消费者消费消息（最好新建一个module-or-server）"><a href="#4-4、消费者消费消息（最好新建一个module-or-server）" class="headerlink" title="4.4、消费者消费消息（最好新建一个module or server）"></a>4.4、消费者消费消息（最好新建一个module or server）</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="meta">@RocketMQMessageListener(consumerGroup = &quot;shuishan-consumer-group&quot;,topic = &quot;shuishan-dev&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyConsumer</span> <span class="keyword">implements</span> <span class="title class_">RocketMQListener</span>&lt;String&gt; &#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">onMessage</span><span class="params">(String s)</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;收到的消息&quot;</span> + s);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://luckyblob.oss-cn-shanghai.aliyuncs.com/postimgs/image-20230429164154656.png" class="lazyload placeholder" data-srcset="https://luckyblob.oss-cn-shanghai.aliyuncs.com/postimgs/image-20230429164154656.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="image-20230429164154656"></p>
-<p>至此 最基本的<code>RocketMQ</code>部署并测试完成。</p>
-<p>祝大家五一节快乐！！！</p>
-
-      </div>
-      <div class="post-tags-categories">
-        
-        <div class="tags">
-          
-            <a href="/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/" class="">
-              中间件
+            </div>
+          </div>
+          <div class="post-img-mobile">
+            <a href="/2023/04/29/shui-shan-zai-xian-ji-cheng-rocketmq-yi-bu-shu-ji-ce-shi/" style="background-size: cover; 
+              background-position: center center;">
+              <img class="lazyload lazyload placeholder" src="https://luckyblob.oss-cn-shanghai.aliyuncs.com/postimgs/image-20230429164844795.png" class="lazyload placeholder" data-srcset="https://luckyblob.oss-cn-shanghai.aliyuncs.com/postimgs/image-20230429164844795.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
             </a>
-          
+          </div>
+          <div class="post-content">
+            “水杉在线”-RocketMQ集成（一、部署及测试）1、拉取镜像这里我们选择了前两天刚刚发布的最新版本5.1.0版本，听说有很多提升，相比于版本4来说。
+1234# 拉取rocketmq docker pull apache/rocketm
+          </div>
         </div>
-        
+        <div class="post-more">
+          <a href="/2023/04/29/shui-shan-zai-xian-ji-cheng-rocketmq-yi-bu-shu-ji-ce-shi/">
+            <i class="iconfont iconmore" pointer style="float: right;  " title="阅读更多"></i>
+          </a>
+        </div>
       </div>
-      
-        <div class="copyright">
-  <ul class="post-copyright">
-    <li class="post-copyright-author">
-    <strong>作者:  </strong>springyulu@ECNU</a>
-    </li>
-    <li class="post-copyright-link">
-    <strong>文章链接:  </strong>
-    <a href="/2023/04/29/shui-shan-zai-xian-ji-cheng-rocketmq-yi-bu-shu-ji-ce-shi/" target="_blank" title="“水杉在线”集成RocketMQ(一、部署及测试)">https://springyulu.github.io/2023/04/29/shui-shan-zai-xian-ji-cheng-rocketmq-yi-bu-shu-ji-ce-shi/</a>
-    </li>
-    <li class="post-copyright-license">
-      <strong>版权声明:   </strong>
-      本网站所有文章除特别声明外,均采用 <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a>
-      许可协议。转载请注明出处!
-    </li>
-  </ul>
-<div>
-      
-    </article>
-    <!-- 上一篇文章和下一篇文章 -->
-    
-      <!-- 文章详情页的上一页和下一页 -->
-<div class="post-nav">
-
-
-
-
-
-  
-  <div class="post-nav-next post-nav-item">
-    <div class="post-nav-img" style="background-size: cover; 
-      background-position: center center;">
-      <img class="lazyload lazyload placeholder" src="https://luckyblob.oss-cn-shanghai.aliyuncs.com/postimgs/image-20230416164142324-16816345069691.png" class="lazyload placeholder" data-srcset="https://luckyblob.oss-cn-shanghai.aliyuncs.com/postimgs/image-20230416164142324-16816345069691.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" src="" alt="">
-    </div>
-    <a href="/2023/04/16/ftp-deploy-by-docker/" class="post-nav-link">
-      <div class="title">
-        下一篇: <i class="fas fa-angle-right"></i>
-        <div class="title-text">基于Docker和vsftpd协议搭建FTP服务器</div>
-      </div>
-      <!-- <div class="content">
-        FTP内置服务器搭建注意端口映射2020 -&gt; 20；2121 -&gt; 2121（如果你的20和21端口被占用
-      </div> -->
-    </a>
-  </div>
-
-</div>
-
-    
-    
-
-    <!-- 打赏 -->
-    
-
-    <!-- 分享 -->
-    
-    
-    <!-- 评论 -->
-    <!-- 评论 -->
-
-  <div id="myComment">
-    
-      
-<section id="comments" style="padding: 1em;"
-	class="animated bounceInUp">
-	<div id="vcomment" class="comment"></div>
-</section>
-<style>
-	#comments {
-		background: rgba(255,255,255,0.9);
-	}
-	#veditor {
-		background-image: url('https://img.zcool.cn/community/01a253594c71cfa8012193a329a77f.gif');
-		background-size: contain;
-		background-repeat: no-repeat;
-		background-position: right;
-		background-color: rgba(255, 255, 255, 0);
-		resize: vertical;
-	}
-	#veditor:focus{
-		background-position-y: 200px;
-		transition: all 0.2s ease-in-out 0s;
-	}
-	#vcomment .vcards .vcard .vh .vhead .vtag.vvisitor {
-		background-color: #42b983;
-	}
-	.v[data-class=v] .vbtn:active, .v[data-class=v] .vbtn:hover {
-		color: #42b983;
-		border-color: #42b983;
-	}
-	#vcomment .vcards .vcard .vhead .vsys i {
-		display: none;
-	}
-	/* 底部valine链接 */
-	#vcomment .vpower {
-		display: none;
-	}
-	
-	/* 底下注释是修改 名称和邮箱和网址输入框的样式 */
-	/* #vcomment .vheader {
-		display: flex;
-		justify-content: space-around;
-	}
-	
-	#vcomment .vheader .vnick {
-		width: 31%;
-		border: 2px solid #dedede;
-		padding-left: 10px;
-		padding-right: 10px;
-		border-radius: 5px
-	}
-
-	#vcomment .vheader .vmail {
-		width: 31%;
-		border: 2px solid #dedede;
-		padding-left: 10px;
-		padding-right: 10px;
-		border-radius: 5px
-	}
-
-	#vcomment .vheader .vlink {
-		width: 31%;
-		border: 2px solid #dedede;
-		padding-left: 10px;
-		padding-right: 10px;
-		border-radius: 5px
-	} */
-
-	img.vimg {
-		transition: all 1s;
-		/* 头像旋转时间为 1s */
-	}
-
-	img.vimg:hover {
-		transform: rotate(360deg);
-		-webkit-transform: rotate(360deg);
-		-moz-transform: rotate(360deg);
-		-o-transform: rotate(360deg);
-		-ms-transform: rotate(360deg);
-	}
-
-	#vcomment .vcards .vcard {
-		padding: 15px 20px 0 20px;
-		border-radius: 10px;
-		margin-bottom: 15px;
-		box-shadow: 0 0 4px 1px rgba(0, 0, 0, .12);
-		transition: all .3s
-	}
-
-	#vcomment .vcards .vcard:hover {
-		box-shadow: 0 0 8px 3px rgba(0, 0, 0, .12)
-	}
-
-	#vcomment .vcards .vcard .vh .vcard {
-		border: none;
-		box-shadow: none;
-	}
-</style>
-    
-  </div>
-
-<!-- comment script in themes\hexo-theme-bamboo\layout\_partial\scripts\index.ejs -->
-
-
-  </div>
-
-  <!-- 目录 -->
-  
-<aside id='l_side'>
-  
-    
-      
-        <section class="widget side_blogger">
-  <div class='content'>
-    
-      
-        <a class='avatar flat-box rectangle' href='/about/'>
-          <img src='https://luckyblob.oss-cn-shanghai.aliyuncs.com/postimgs/1e38b34d7166675a2d78d8e1ae651b6.jpg'/>
+      <div class="post-img">
+        <a href="/2023/04/29/shui-shan-zai-xian-ji-cheng-rocketmq-yi-bu-shu-ji-ce-shi/" style="background-size: cover; 
+          background-position: center center;">
+          <img class="lazyload lazyload placeholder" src="https://luckyblob.oss-cn-shanghai.aliyuncs.com/postimgs/image-20230429164844795.png" class="lazyload placeholder" data-srcset="https://luckyblob.oss-cn-shanghai.aliyuncs.com/postimgs/image-20230429164844795.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
         </a>
-      
-    
-    
-      <div class='text'>
-        
-          <h2>Lucky</h2>
-        
-        
-          <p>Hey, please wake up! It’s time to leave..</p>
-
-        
-        
       </div>
-    
-    
-      <div class="social-wrapper">
-        
-          
-            <a href="/atom.xml"
-              class="social fas fa-rss flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="mailto:2214187440@qq.com"
-              class="social fas fa-envelope flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="https://github.com/lucky-lcy-best"
-              class="social fab fa-github flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="tencent://AddContact/?fromId=50&amp;fromSubId=1&amp;subcmd=all&amp;uin=2214187440"
-              class="social fab fa-qq flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-      </div>
-    
-  </div>
+    </article>
+  
 </section>
-
-      
-    
-  
-  
-  
-    
-  
-
-  <div class="layout_sticky">    
-    
-      
-<section class="widget side_toc">
-  
-  <header>
-    
-      <i style="color: " class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
-    
-  </header>
-
-
-  <div class='content'>
-    <div class="toc-main">
-      <div class="toc-content">
-        <!-- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E2%80%9C%E6%B0%B4%E6%9D%89%E5%9C%A8%E7%BA%BF%E2%80%9D-RocketMQ%E9%9B%86%E6%88%90%EF%BC%88%E4%B8%80%E3%80%81%E9%83%A8%E7%BD%B2%E5%8F%8A%E6%B5%8B%E8%AF%95%EF%BC%89"><span class="toc-text">“水杉在线”-RocketMQ集成（一、部署及测试）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1%E3%80%81%E6%8B%89%E5%8F%96%E9%95%9C%E5%83%8F"><span class="toc-text">1、拉取镜像</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%E3%80%81%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE"><span class="toc-text">2、环境配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3%E3%80%81%E5%90%AF%E5%8A%A8RocketMQ"><span class="toc-text">3、启动RocketMQ</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4%E3%80%81SpringCloud%E6%95%B4%E5%90%88RocketMQ"><span class="toc-text">4、SpringCloud整合RocketMQ</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1%E3%80%81pom-xml%E5%BC%95%E5%85%A5%E4%BE%9D%E8%B5%96"><span class="toc-text">4.1、pom.xml引入依赖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2%E3%80%81application-yml%E4%B8%AD%E9%85%8D%E7%BD%AE%E5%9F%BA%E6%9C%AC%E5%8F%98%E9%87%8F"><span class="toc-text">4.2、application.yml中配置基本变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3%E3%80%81%E7%94%9F%E4%BA%A7%E8%80%85%E8%BF%9E%E6%8E%A5%E5%B9%B6%E5%8F%91%E9%80%81%E6%B6%88%E6%81%AF"><span class="toc-text">4.3、生产者连接并发送消息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-4%E3%80%81%E6%B6%88%E8%B4%B9%E8%80%85%E6%B6%88%E8%B4%B9%E6%B6%88%E6%81%AF%EF%BC%88%E6%9C%80%E5%A5%BD%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AAmodule-or-server%EF%BC%89"><span class="toc-text">4.4、消费者消费消息（最好新建一个module or server）</span></a></li></ol></li></ol></li></ol> -->
-        <div class="toc"></div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- 手机端目录按钮 -->
-<div id="toc-mobile-btn">
-  <i class="fas fa-list-ul" aria-hidden="true"></i>
 </div>
 
-      
-  <section class="widget side_recent_post">
-    
-  <header>
-    
-      <a style="color: " href='/tags/'><i class="fas fa-book fa-fw" aria-hidden="true"></i><span class='name'>最新文章</span></a>
-    
-  </header>
-
-
-    <div class='content'>
-      
-      <!-- hash算法 -->
-      
-      <div class="aside-list">
-        
-          <div class="aside-list-item">
-            
-            
-            
-
-            <div class="post-img-box">
-              <a href="/2023/04/29/shui-shan-zai-xian-ji-cheng-rocketmq-yi-bu-shu-ji-ce-shi/" class="post-img " style="background-size: cover; 
-                background-position: center center;">
-                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://luckyblob.oss-cn-shanghai.aliyuncs.com/postimgs/image-20230429164844795.png" class="lazyload placeholder" data-srcset="https://luckyblob.oss-cn-shanghai.aliyuncs.com/postimgs/image-20230429164844795.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
-              </a>
-            </div>
-            <div class="post-date-title">
-              <div>
-                
-                  <span class="post-date">04-29</span>
-                
-              </div>
-              <a class="post-title" href="/2023/04/29/shui-shan-zai-xian-ji-cheng-rocketmq-yi-bu-shu-ji-ce-shi/">“水杉在线”集成RocketMQ(一、部署及测试)</a>
-            </div>
-          </div>
-        
-          <div class="aside-list-item">
-            
-            
-            
-
-            <div class="post-img-box">
-              <a href="/2023/04/16/ftp-deploy-by-docker/" class="post-img " style="background-size: cover; 
-                background-position: center center;">
-                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://luckyblob.oss-cn-shanghai.aliyuncs.com/postimgs/image-20230416164142324-16816345069691.png" class="lazyload placeholder" data-srcset="https://luckyblob.oss-cn-shanghai.aliyuncs.com/postimgs/image-20230416164142324-16816345069691.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
-              </a>
-            </div>
-            <div class="post-date-title">
-              <div>
-                
-                  <span class="post-date">04-16</span>
-                
-              </div>
-              <a class="post-title" href="/2023/04/16/ftp-deploy-by-docker/">基于Docker和vsftpd协议搭建FTP服务器</a>
-            </div>
-          </div>
-        
-          <div class="aside-list-item">
-            
-            
-            
-
-            <div class="post-img-box">
-              <a href="/2023/04/04/dan-ji-bu-shu-gitlab-gitlab-runner-shi-xian-devops-liu-cheng-hua-ruan-jian-kai-fa-guo-cheng/" class="post-img " style="background-size: cover; 
-                background-position: center center;">
-                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://luckyblob.oss-cn-shanghai.aliyuncs.com/postimgs/image-20230404213900259.png" class="lazyload placeholder" data-srcset="https://luckyblob.oss-cn-shanghai.aliyuncs.com/postimgs/image-20230404213900259.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
-              </a>
-            </div>
-            <div class="post-date-title">
-              <div>
-                
-                  <span class="post-date">04-04</span>
-                
-              </div>
-              <a class="post-title" href="/2023/04/04/dan-ji-bu-shu-gitlab-gitlab-runner-shi-xian-devops-liu-cheng-hua-ruan-jian-kai-fa-guo-cheng/">Devops---基于Docker实现GitLab企业开发过程全自动化</a>
-            </div>
-          </div>
-        
-          <div class="aside-list-item">
-            
-            
-            
-
-            <div class="post-img-box">
-              <a href="/2023/04/01/bo-ke-da-jian-hui-gu-ban/" class="post-img " style="background-size: cover; 
-                background-position: center center;">
-                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://luckyblob.oss-cn-shanghai.aliyuncs.com/postimgs/1b41530bbcc911f607dfa29f9d1887f.jpg" class="lazyload placeholder" data-srcset="https://luckyblob.oss-cn-shanghai.aliyuncs.com/postimgs/1b41530bbcc911f607dfa29f9d1887f.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
-              </a>
-            </div>
-            <div class="post-date-title">
-              <div>
-                
-                  <span class="post-date">04-01</span>
-                
-              </div>
-              <a class="post-title" href="/2023/04/01/bo-ke-da-jian-hui-gu-ban/">博客搭建回顾版</a>
-            </div>
-          </div>
-        
-          <div class="aside-list-item">
-            
-            
-            
-
-            <div class="post-img-box">
-              <a href="/2023/03/10/k8s-chu-ti-yan-minikube-tu-po-ge-duan-fang-wen-xian-zhi-yi-nginx-wei-li/" class="post-img " style="background-size: cover; 
-                background-position: center center;">
-                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://luckyblob.oss-cn-shanghai.aliyuncs.com/postimgs/image-20230310101006602.png" class="lazyload placeholder" data-srcset="https://luckyblob.oss-cn-shanghai.aliyuncs.com/postimgs/image-20230310101006602.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
-              </a>
-            </div>
-            <div class="post-date-title">
-              <div>
-                
-                  <span class="post-date">03-10</span>
-                
-              </div>
-              <a class="post-title" href="/2023/03/10/k8s-chu-ti-yan-minikube-tu-po-ge-duan-fang-wen-xian-zhi-yi-nginx-wei-li/">k8s初体验-minikube突破隔断访问限制(以nginx为例)</a>
-            </div>
-          </div>
-        
-      </div>
-    </div>
-  </section>
-
-    
-  </div>
-</aside>
-
-
-  <!-- 图片放大 Wrap images with fancybox support -->
-  <script src="/js/wrapImage.js"></script>
-</div>
-
-<!-- 文章详情页背景图 -->
-<div id="appBgSwiper" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -2;"
-	:style="{'background-color': bgColor ? bgColor : 'transparent'}">
-	<transition-group tag="ul" :name="names">
-		<li v-for='(image,index) in img' :key='index' v-show="index === mark" class="bg-swiper-box">
-			<img :src="image" class="bg-swiper-img no-lazy">
-		</li>
-	</transition-group>
-</div>
-<script>
-	var vm = new Vue({
-		el: '#appBgSwiper',
-		data: {
-			names: '' || 'fade' || 'fade', // translate-fade fade
-			mark: 0,
-			img: [],
-			bgColor: '',
-			time: null
-		},
-		methods: {   //添加方法
-			change(i, m) {
-				if (i > m) {
-					// this.names = 'fade';
-				} else if (i < m) {
-					// this.names = 'fade';
-				} else {
-					return;
-				}
-				this.mark = i;
-			},
-			prev() {
-				// this.names = 'fade';
-				this.mark--;
-				if (this.mark === -1) {
-					this.mark = 3;
-					return
-				}
-			},
-			next() {
-				// this.names = 'fade';
-				this.mark++;
-				if (this.mark === this.img.length) {
-					this.mark = 0;
-					return
-				}
-			},
-			autoPlay() {
-				// this.names = 'fade';
-				this.mark++;
-				if (this.mark === this.img.length) {
-					this.mark = 0;
-					return
-				}
-			},
-			play() {
-				let bgImgDelay = '' || '180000'
-				let delay = parseInt(bgImgDelay) || 180000;
-				this.time = setInterval(this.autoPlay, delay);
-			},
-			enter() {
-				clearInterval(this.time);
-			},
-			leave() {
-				this.play();
-			}
-		},
-		created() {
-			this.play()
-		},
-		beforeDestroy() {
-			clearInterval(this.time);
-		},
-		mounted() {
-			let prop = '' || 'https://luckyblob.oss-cn-shanghai.aliyuncs.com/postimgs/e440ed2814d9a99634d9390ef3cd228.jpg';
-			let isImg = prop.includes('.bmp') || prop.includes('.jpg') || prop.includes('.png') || prop.includes('.tif') || prop.includes('.gif') || prop.includes('.pcx') || prop.includes('.tga') || prop.includes('.exif') || prop.includes('.fpx') || prop.includes('.psd') || prop.includes('.cdr') || prop.includes('.pcd') || prop.includes('.dxf') || prop.includes('.ufo') || prop.includes('.eps') || prop.includes('.ai') || prop.includes('.raw') || prop.includes('.WMF') || prop.includes('.webp') || prop.includes('.jpeg') || prop.includes('http://') || prop.includes('https://')
-			if (isImg) {
-				let img = prop.split(',');
-				let configRoot = '/'
-				let arrImg = [];
-				img.forEach(el => {
-					var Expression = /http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?/;
-					var objExp = new RegExp(Expression);
-
-					if (objExp.test(el)) {
-						// http or https
-						arrImg.push(el);
-					} else {
-						// 非http or https开头
-						// 本地文件
-						let firstStr = el.charAt(0);
-						if (firstStr == '/') {
-							el = el.substr(1); // 删除第一个字符 '/',因为 configRoot最后一个字符为 /
-						}
-						el = configRoot + el;
-						arrImg.push(el);
-					}
-				})
-				this.img = arrImg;
-			} else {
-				this.bgColor = prop;
-			}
-		}
-	})
-</script>
-
-<style>
-	.bg-swiper-box {
-		position: absolute;
-		display: block;
-		width: 100%;
-		height: 100%;
-	}
-
-	.bg-swiper-img {
-		object-fit: cover;
-		width: 100%;
-		height: 100%;
-	}
-</style>
-
-
-
-
-  <script>
-  function loadMermaid() {
-    if (document.getElementsByClassName('mermaid').length) {
-      if (window.mermaidJsLoad) mermaid.init()
-      else {
-        loadScript('https://unpkg.com/mermaid/dist/mermaid.min.js').then(() => {
-          window.mermaidJsLoad = true
-          mermaid.initialize({
-            theme: 'default',
-          })
-          if ('true') {
-            mermaid.init();
-          }
-        })
-      }
-    }
-  };
-  document.addEventListener("DOMContentLoaded", function () {
-    loadMermaid();
-  })
-
-  document.addEventListener('pjax:complete', function () {
-    loadMermaid();
-  })
+<div class="w-70">
   
-</script>
-
+</div>
 
       </main>
     </div>
