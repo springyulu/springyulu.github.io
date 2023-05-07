@@ -889,8 +889,6 @@
   
   
   
-    
-  
 
   <div class="layout_sticky">    
     
@@ -1104,8 +1102,8 @@
         <div class="webinfo-item">
           <div>最后活动时间：</div>
           
-            <div id="last-update" style="display: none;">Sat Apr 29 2023 17:30:45 GMT+0800 (中国标准时间)</div>
-            <div id="last-update-show">2023-04-29 日</div>
+            <div id="last-update" style="display: none;">Sun May 07 2023 17:47:24 GMT+0800 (中国标准时间)</div>
+            <div id="last-update-show">2023-05-07 日</div>
           
         </div>
         
@@ -1155,7 +1153,7 @@
           try {
             document.getElementById('last-update-show').innerHTML = timeago(new Date(lastUpDate));
           } catch (error) {
-            document.getElementById('last-update-show').innerHTML = '2023-04-29 日';
+            document.getElementById('last-update-show').innerHTML = '2023-05-07 日';
           }
         </script>
         
@@ -1164,33 +1162,6 @@
   </div>
 </section>
       
-  
-    <div class="widget testWidget" id="testWidget" style="order: -1;background: #fff">
-      <header>
-        
-          <a style="color: #d63130" target="_blank" rel="noopener" href='http://baidu.com'><i class="fab fa-weibo fa-fw" aria-hidden="true"></i><span class='name'>微博热搜</span></a>
-        
-      </header>
-      <div class="content">
-        <div id="myWeibo">
-<!-- 如果不要滚动，则去掉 vue-seamless-scroll标签就行了，这个插件使用cdn向左向右滚动好像有问题 -->
-<vue-seamless-scroll :data="content" :class-option="classOption" class="warp" > <div class="weibo-container" v-for="(item, index) in content" :key="index"> <div class="left"> <div class="order" :class="{ red: index<=2 }">{{index + 1}}</div> <div class="name"><a :href="item.url" target="_blank">{{item.name}}</a></div> </div> <div class="hot">{{item.hot}}</div> </div> </vue-seamless-scroll> </div>
-<script src="/weibo/index.js"></script> <link href="/weibo/index.css" rel="stylesheet"> 
-      </div>
-  </div>
-  
-    <div class="widget historyToday" id="historyToday" style="order: 0;background: #fff">
-      <header>
-        
-          <a style="color: #d63130" target="_blank" rel="noopener" href='http://baidu.com'><i class="fas fa-calendar-week fa-fw" aria-hidden="true"></i><span class='name'>历史上的今天</span></a>
-        
-      </header>
-      <div class="content">
-         <div id="myHistorySwiper" @mouseenter="stopAutoPlay()" @mouseleave="startAutoPlay()"> <swiper class="myhistoryswiper" ref="myhistoryswiper" style="height:80px;" :options="swiperOption"> <swiper-slide v-for="(item, index) in content" :key="index"> {{item}} </swiper-slide> </swiper> </div> <script src="/historyToday/index.js"></script> 
-      </div>
-  </div>
-  
-
     
   </div>
 </aside>
