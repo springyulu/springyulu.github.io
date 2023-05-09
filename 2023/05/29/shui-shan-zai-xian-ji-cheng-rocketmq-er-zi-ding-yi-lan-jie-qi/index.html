@@ -672,8 +672,8 @@
 
 <p>测试方法：我们选择单元测试启动一个Mapper的查询方法。消费者模块单独启动一个微服务进行消费。</p>
 <p>结果：测试拦截成功。</p>
-<p><img src="https://luckyblob.oss-cn-shanghai.aliyuncs.com/postimgs/image-20230509175633435.png" class="lazyload placeholder" data-srcset="https://luckyblob.oss-cn-shanghai.aliyuncs.com/postimgs/image-20230509175633435.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="image-20230509175633435"></p>
-<p><img src="/img/%E2%80%9C%E6%B0%B4%E6%9D%89%E5%9C%A8%E7%BA%BF%E2%80%9D-RocketMQ%E9%9B%86%E6%88%90%EF%BC%88%E4%BA%8C%E3%80%81%E8%87%AA%E5%AE%9A%E4%B9%89Mybatis%E6%8B%A6%E6%88%AA%E5%99%A8%EF%BC%89/image-20230509175741934.png" class="lazyload placeholder" data-srcset="/img/%E2%80%9C%E6%B0%B4%E6%9D%89%E5%9C%A8%E7%BA%BF%E2%80%9D-RocketMQ%E9%9B%86%E6%88%90%EF%BC%88%E4%BA%8C%E3%80%81%E8%87%AA%E5%AE%9A%E4%B9%89Mybatis%E6%8B%A6%E6%88%AA%E5%99%A8%EF%BC%89/image-20230509175741934.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="image-20230509175741934"></p>
+<p><img src="https://luckyblob.oss-cn-shanghai.aliyuncs.com/postimgs/image-20230509175633435.png" class="lazyload placeholder" data-srcset="https://luckyblob.oss-cn-shanghai.aliyuncs.com/postimgs/image-20230509175633435.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="消息发送"></p>
+<p><img src="https://luckyblob.oss-cn-shanghai.aliyuncs.com/postimgs/image-20230509175741934.png" class="lazyload placeholder" data-srcset="https://luckyblob.oss-cn-shanghai.aliyuncs.com/postimgs/image-20230509175741934.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="消息消费"></p>
 <h2 id="四、踩坑记录"><a href="#四、踩坑记录" class="headerlink" title="四、踩坑记录"></a>四、踩坑记录</h2><p>原本在生产者和消费者模块全部采用<code>RocketTemplate</code>来处理，因为实现了自动装配，不需要指定namesrv、group组等，但是由于未知原因在拦截器中注入<code>RocketTemplate</code>出现一个问题就是注入不进来，异常处理后就是报空指针异常，最后试了很多方法都不行。于是改变策略，将测试、本地、生产端不同的<code>mq</code>配置均放在<code>nacos</code>中。通过默认生产者代码进行处理，封装一个新的生产者，进而曲线救国，解决了问题。</p>
 
       </div>
