@@ -6,7 +6,7 @@
   <link href="https://springyulu.github.io/atom.xml" rel="self"/>
   
   <link href="https://springyulu.github.io/"/>
-  <updated>2023-04-29T08:50:44.348Z</updated>
+  <updated>2023-05-09T10:05:11.446Z</updated>
   <id>https://springyulu.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>“水杉在线”-集成RocketMQ（二、自定义拦截器）</title>
+    <link href="https://springyulu.github.io/2023/05/29/shui-shan-zai-xian-ji-cheng-rocketmq-er-zi-ding-yi-lan-jie-qi/"/>
+    <id>https://springyulu.github.io/2023/05/29/shui-shan-zai-xian-ji-cheng-rocketmq-er-zi-ding-yi-lan-jie-qi/</id>
+    <published>2023-05-29T09:45:18.000Z</published>
+    <updated>2023-05-09T10:05:11.446Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;一、自定义MyBatis拦截器&quot;&gt;&lt;a href=&quot;#一、自定义MyBatis拦截器&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="中间件" scheme="https://springyulu.github.io/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/"/>
+    
+  </entry>
   
   <entry>
     <title>“水杉在线”集成RocketMQ(一、部署及测试)</title>
