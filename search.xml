@@ -23,6 +23,19 @@
     
     
     <entry>
+      <title>Github Actions 简易使用教程</title>
+      <link href="/2023/05/23/github-actions/"/>
+      <url>/2023/05/23/github-actions/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Github-Actions简易使用教程"><a href="#Github-Actions简易使用教程" class="headerlink" title="Github Actions简易使用教程"></a><code>Github Actions</code>简易使用教程</h1><p>下面这个<code>test-action</code>仓库主要是用来练手<code>github actions</code>的，以前谈恋爱的时候写过用<code>github-actions</code>结合微信测试接口号，每天早上九点钟给女朋友发早安和天气信息等。</p><p>下面这个就很简单，使用 <code>GitHub Actions</code> 来在每天早上九点钟执行打印问候信息的任务。</p><p>首先新建<code>repo</code>之后，建一个<code>.github/workflows/main.yml</code>的文件来定义一个<code>job</code>，也就是作业来完成每天早上九点钟执行打印问候信息的任务，注意<code>UTC</code>时间和北京时间的换算，差8个小时，所以我这里是1，换成北京时间就是上午九点。</p><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">Morning</span> <span class="string">Greeting</span></span><br><span class="line"></span><br><span class="line"><span class="attr">on:</span></span><br><span class="line">  <span class="attr">schedule:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">cron:</span> <span class="string">&quot;0 1 * * *&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="attr">greet:</span></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">ubuntu-latest</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Checkout</span> <span class="string">repository</span></span><br><span class="line">      <span class="attr">uses:</span> <span class="string">actions/checkout@v2</span></span><br><span class="line"></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Print</span> <span class="string">greeting</span></span><br><span class="line">      <span class="attr">run:</span> <span class="string">echo</span> <span class="string">&quot;早安！祝您有个美好的一天！&quot;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure><p>上述配置文件中，我们定义了一个作业（<code>greet</code>）用于打印早安问候信息。</p><ul><li><code>schedule</code> 部分指定了作业的触发时间。在示例中，我们设置为每天早上 9 点钟触发（<code>UTC </code>转换成北京时间）</li><li><code>greet</code> 作业在 <code>ubuntu-latest</code> 环境上运行。它首先检出代码，然后使用 <code>run</code> 命令来执行打印问候信息的操作</li></ul><p>现在，每天早上九点钟，<code>GitHub Actions</code> 将自动触发作业并在 <code>Ubuntu</code> 环境上运行，打印出 “早安！祝您有个美好的一天！” 的问候信息。</p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>“水杉在线”集成RocketMQ(一、部署及测试)</title>
       <link href="/2023/04/29/shui-shan-zai-xian-ji-cheng-rocketmq-yi-bu-shu-ji-ce-shi/"/>
       <url>/2023/04/29/shui-shan-zai-xian-ji-cheng-rocketmq-yi-bu-shu-ji-ce-shi/</url>

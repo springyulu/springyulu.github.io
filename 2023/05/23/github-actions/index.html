@@ -11,7 +11,7 @@
   <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-  <title>Lucky&#39;s Resume | Spring Rain</title>
+  <title>Github Actions 简易使用教程 | Spring Rain</title>
 
   <link rel="icon" type="image/jpeg" href="https://luckyblob.oss-cn-shanghai.aliyuncs.com/postimgs/1e38b34d7166675a2d78d8e1ae651b6.jpg">
   <link rel="stylesheet" href="https://at.alicdn.com/t/font_1911880_c1nvbyezg17.css">
@@ -610,17 +610,27 @@
 
 
 <div class="post-detail-header" id="thumbnail_canvas" style="background-repeat: no-repeat; background-size: cover; 
-  background-position: center center;position: relative;background-image:url('https://pic2.zhimg.com/v2-175be238e0e71c76a5b2504d6a9425e5_b.jpg')">
+  background-position: center center;position: relative;background-image:url('/medias/1.jpg')">
   <div class="post-detail-header-mask"></div>
   <canvas id="header_canvas"style="position:absolute;bottom:0;pointer-events:none;"></canvas>
   
   <div class="post-detail-header_info-box">
     <div class="title-box">
       <span class="title">
-        Lucky&#39;s Resume
+        Github Actions 简易使用教程
       </span>
     </div>
     
+    
+      
+        <span class="post-detail-header_date">
+          <i class="fas fa-calendar"></i> 发表于：2023-05-23 |
+        </span>
+      
+
+      
+
+      
     
   </div>
   
@@ -638,14 +648,17 @@
   <div class="main-content">
     <article class="post post-detail">
       <div class="post-content">
-        <!-- <embed src="/pdf/resume.pdf" type="application/pdf" width=100% height=1000> -->
+        <h1 id="Github-Actions简易使用教程"><a href="#Github-Actions简易使用教程" class="headerlink" title="Github Actions简易使用教程"></a><code>Github Actions</code>简易使用教程</h1><p>下面这个<code>test-action</code>仓库主要是用来练手<code>github actions</code>的，以前谈恋爱的时候写过用<code>github-actions</code>结合微信测试接口号，每天早上九点钟给女朋友发早安和天气信息等。</p>
+<p>下面这个就很简单，使用 <code>GitHub Actions</code> 来在每天早上九点钟执行打印问候信息的任务。</p>
+<p>首先新建<code>repo</code>之后，建一个<code>.github/workflows/main.yml</code>的文件来定义一个<code>job</code>，也就是作业来完成每天早上九点钟执行打印问候信息的任务，注意<code>UTC</code>时间和北京时间的换算，差8个小时，所以我这里是1，换成北京时间就是上午九点。</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">Morning</span> <span class="string">Greeting</span></span><br><span class="line"></span><br><span class="line"><span class="attr">on:</span></span><br><span class="line">  <span class="attr">schedule:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">cron:</span> <span class="string">&quot;0 1 * * *&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="attr">greet:</span></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">ubuntu-latest</span></span><br><span class="line"></span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Checkout</span> <span class="string">repository</span></span><br><span class="line">      <span class="attr">uses:</span> <span class="string">actions/checkout@v2</span></span><br><span class="line"></span><br><span class="line">    <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Print</span> <span class="string">greeting</span></span><br><span class="line">      <span class="attr">run:</span> <span class="string">echo</span> <span class="string">&quot;早安！祝您有个美好的一天！&quot;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-
-	<div class="row">
-    <embed src="/pdf/resume.pdf" width="100%" height="550" type="application/pdf">
-	</div>
-
-
+<p>上述配置文件中，我们定义了一个作业（<code>greet</code>）用于打印早安问候信息。</p>
+<ul>
+<li><code>schedule</code> 部分指定了作业的触发时间。在示例中，我们设置为每天早上 9 点钟触发（<code>UTC </code>转换成北京时间）</li>
+<li><code>greet</code> 作业在 <code>ubuntu-latest</code> 环境上运行。它首先检出代码，然后使用 <code>run</code> 命令来执行打印问候信息的操作</li>
+</ul>
+<p>现在，每天早上九点钟，<code>GitHub Actions</code> 将自动触发作业并在 <code>Ubuntu</code> 环境上运行，打印出 “早安！祝您有个美好的一天！” 的问候信息。</p>
 
       </div>
       <div class="post-tags-categories">
@@ -659,7 +672,7 @@
     </li>
     <li class="post-copyright-link">
     <strong>文章链接:  </strong>
-    <a href="/resume/index.html" target="_blank" title="Lucky&#39;s Resume">https://springyulu.github.io/resume/index.html</a>
+    <a href="/2023/05/23/github-actions/" target="_blank" title="Github Actions 简易使用教程">https://springyulu.github.io/2023/05/23/github-actions/</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明:   </strong>
@@ -677,7 +690,42 @@
 
 
 
+  
+  <div class="post-nav-prev post-nav-item">
+    <div class="post-nav-img" style="background-size: cover; 
+      background-position: center center;">
+      <img class="lazyload lazyload placeholder" src="https://luckyblob.oss-cn-shanghai.aliyuncs.com/postimgs/image-20230429164844795.png" class="lazyload placeholder" data-srcset="https://luckyblob.oss-cn-shanghai.aliyuncs.com/postimgs/image-20230429164844795.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+    </div>
+    <a href="/2023/05/29/shui-shan-zai-xian-ji-cheng-rocketmq-er-zi-ding-yi-lan-jie-qi/" class="post-nav-link">
+      <div class="title">
+        <i class="fas fa-angle-left"></i> 上一篇:
+        <div class="title-text">“水杉在线”-集成RocketMQ（二、自定义拦截器）</div>
+      </div>
+      
+      <!-- <div class="content">
+        一、自定义MyBatis拦截器我们首先需要自定义一个拦截器来拦截我们指定的sql语句类型，比如query或者update
+      </div> -->
+    </a>
+  </div>
 
+
+
+  
+  <div class="post-nav-next post-nav-item">
+    <div class="post-nav-img" style="background-size: cover; 
+      background-position: center center;">
+      <img class="lazyload lazyload placeholder" src="https://luckyblob.oss-cn-shanghai.aliyuncs.com/postimgs/image-20230429164844795.png" class="lazyload placeholder" data-srcset="https://luckyblob.oss-cn-shanghai.aliyuncs.com/postimgs/image-20230429164844795.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" src="" alt="">
+    </div>
+    <a href="/2023/04/29/shui-shan-zai-xian-ji-cheng-rocketmq-yi-bu-shu-ji-ce-shi/" class="post-nav-link">
+      <div class="title">
+        下一篇: <i class="fas fa-angle-right"></i>
+        <div class="title-text">“水杉在线”集成RocketMQ(一、部署及测试)</div>
+      </div>
+      <!-- <div class="content">
+        “水杉在线”-RocketMQ集成（一、部署及测试）1、拉取镜像这里我们选择了前两天刚刚发布的最新版本5.1.0版本，听
+      </div> -->
+    </a>
+  </div>
 
 </div>
 
@@ -881,27 +929,29 @@
   <div class="layout_sticky">    
     
       
-        
+<section class="widget side_toc">
   
-      
-      
-        
-<section class="widget side_tagcloud">
-    
   <header>
     
-      <a style="color: " href='/tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
+      <i style="color: " class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
     
   </header>
 
 
-    <div class='content'>
-    <a href="/tags/Devops/" style="font-size: 14px; color: #999">Devops</a> <a href="/tags/Docker/" style="font-size: 14px; color: #999">Docker</a> <a href="/tags/config/" style="font-size: 14px; color: #999">config</a> <a href="/tags/k8s/" style="font-size: 24px; color: #555">k8s</a> <a href="/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/" style="font-size: 19px; color: #777">中间件</a>
+  <div class='content'>
+    <div class="toc-main">
+      <div class="toc-content">
+        <!-- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Github-Actions%E7%AE%80%E6%98%93%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B"><span class="toc-text">Github Actions简易使用教程</span></a></li></ol> -->
+        <div class="toc"></div>
+      </div>
     </div>
+  </div>
 </section>
+<!-- 手机端目录按钮 -->
+<div id="toc-mobile-btn">
+  <i class="fas fa-list-ul" aria-hidden="true"></i>
+</div>
 
-  
-      
       
   <section class="widget side_recent_post">
     
@@ -1027,156 +1077,6 @@
     </div>
   </section>
 
-      
-  <section class="widget side_archives">
-    
-    <header><a style="color: red" href='/archives/'><i class="fas fa-archive fa-fw" aria-hidden="true"></i><span class='name'>归档</span></a></header><div class="content"><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/05/"><span class="card-archive-list-date">五月 2023</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/04/"><span class="card-archive-list-date">四月 2023</span><span class="card-archive-list-count">4</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/03/"><span class="card-archive-list-date">三月 2023</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/02/"><span class="card-archive-list-date">二月 2023</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/01/"><span class="card-archive-list-date">一月 2023</span><span class="card-archive-list-count">2</span></a></li></ul></div>
-  </section>
-
-      <section class="widget side_webinfo">
-  
-  <header>
-    
-      <i style="color: " class="fas fa-chart-line fa-fw" aria-hidden="true"></i><span class='name'>站点信息</span>
-    
-  </header>
-
-
-  <div class='content'>
-    <div class="webinfo">
-      
-        <div class="webinfo-item">
-          <div>文章数目：</div>
-          <div>12 篇</div>
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>已运行时间：</div>
-          <div id="webinfo-runtime-count" publish_date="03/24/2020 21:34:09"></div>
-        </div>
-        <script>
-          var BirthDay = new Date(new Date('2020/01/01'));
-          var today = new Date();
-          var timeold = (today.getTime() - BirthDay.getTime());
-          var daysold = Math.floor(timeold / (24 * 60 * 60 * 1000));
-          document.getElementById('webinfo-runtime-count').innerHTML = daysold + ' 天';
-        </script>
-      
-
-
-      
-
-      
-        <div class="webinfo-item">
-          <div>本站访客数：</div>
-          
-          <div><span id="busuanzi_value_site_uv"><i class="fas fa-fan fa-spin fa-fw" aria-hidden="true"></i></span> 人</div>
-          
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>本站总访问量：</div>
-          
-          <div><span id="busuanzi_value_site_pv"><i class="fas fa-fan fa-spin fa-fw" aria-hidden="true"></i></span> 次</div>
-          
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>最后活动时间：</div>
-          
-            <div id="last-update" style="display: none;">Tue May 23 2023 16:34:02 GMT+0800 (中国标准时间)</div>
-            <div id="last-update-show">2023-05-23 日</div>
-          
-        </div>
-        
-        <script>
-          function timeago(dateTimeStamp) {
-              var minute = 1000 * 60; //把分，时，天，周，半个月，一个月用毫秒表示
-              var hour = minute * 60;
-              var day = hour * 24;
-              var week = day * 7;
-              var month = day * 30;
-              var now = new Date().getTime(); //获取当前时间毫秒
-              var diffValue = now - dateTimeStamp; //时间差
-              if (diffValue < 0) {
-                  return;
-              }
-              var minC = diffValue / minute; //计算时间差的分，时，天，周，月
-              var hourC = diffValue / hour;
-              var dayC = diffValue / day;
-              var weekC = diffValue / week;
-              var monthC = diffValue / month;
-              if (monthC >= 1 && monthC <= 3) {
-                  result = " " + parseInt(monthC) + " 月前"
-              } else if (weekC >= 1 && weekC <= 3) {
-                  result = " " + parseInt(weekC) + " 周前"
-              } else if (dayC >= 1 && dayC <= 6) {
-                  result = " " + parseInt(dayC) + " 天前"
-              } else if (hourC >= 1 && hourC <= 23) {
-                  result = " " + parseInt(hourC) + " 小时前"
-              } else if (minC >= 1 && minC <= 59) {
-                  result = " " + parseInt(minC) + " 分钟前"
-              } else if (diffValue >= 0 && diffValue <= minute) {
-                  result = "刚刚"
-              } else {
-                  var datetime = new Date();
-                  datetime.setTime(dateTimeStamp);
-                  var Nyear = datetime.getFullYear();
-                  var Nmonth = datetime.getMonth() + 1 < 10 ? "0" + (datetime.getMonth() + 1) : datetime.getMonth() + 1;
-                  var Ndate = datetime.getDate() < 10 ? "0" + datetime.getDate() : datetime.getDate();
-                  var Nhour = datetime.getHours() < 10 ? "0" + datetime.getHours() : datetime.getHours();
-                  var Nminute = datetime.getMinutes() < 10 ? "0" + datetime.getMinutes() : datetime.getMinutes();
-                  var Nsecond = datetime.getSeconds() < 10 ? "0" + datetime.getSeconds() : datetime.getSeconds();
-                  result = Nyear + "-" + Nmonth + "-" + Ndate
-              }
-              return result;
-          }
-          var lastUpDate = document.getElementById('last-update').innerHTML;
-          try {
-            document.getElementById('last-update-show').innerHTML = timeago(new Date(lastUpDate));
-          } catch (error) {
-            document.getElementById('last-update-show').innerHTML = '2023-05-23 日';
-          }
-        </script>
-        
-      
-    </div>
-  </div>
-</section>
-      
-  
-    <div class="widget testWidget" id="testWidget" style="order: -1;background: #fff">
-      <header>
-        
-          <a style="color: #d63130" target="_blank" rel="noopener" href='http://baidu.com'><i class="fab fa-weibo fa-fw" aria-hidden="true"></i><span class='name'>微博热搜</span></a>
-        
-      </header>
-      <div class="content">
-        <div id="myWeibo">
-<!-- 如果不要滚动，则去掉 vue-seamless-scroll标签就行了，这个插件使用cdn向左向右滚动好像有问题 -->
-<vue-seamless-scroll :data="content" :class-option="classOption" class="warp" > <div class="weibo-container" v-for="(item, index) in content" :key="index"> <div class="left"> <div class="order" :class="{ red: index<=2 }">{{index + 1}}</div> <div class="name"><a :href="item.url" target="_blank">{{item.name}}</a></div> </div> <div class="hot">{{item.hot}}</div> </div> </vue-seamless-scroll> </div>
-<script src="/weibo/index.js"></script> <link href="/weibo/index.css" rel="stylesheet"> 
-      </div>
-  </div>
-  
-    <div class="widget historyToday" id="historyToday" style="order: 0;background: #fff">
-      <header>
-        
-          <a style="color: #d63130" target="_blank" rel="noopener" href='http://baidu.com'><i class="fas fa-calendar-week fa-fw" aria-hidden="true"></i><span class='name'>历史上的今天</span></a>
-        
-      </header>
-      <div class="content">
-         <div id="myHistorySwiper" @mouseenter="stopAutoPlay()" @mouseleave="startAutoPlay()"> <swiper class="myhistoryswiper" ref="myhistoryswiper" style="height:80px;" :options="swiperOption"> <swiper-slide v-for="(item, index) in content" :key="index"> {{item}} </swiper-slide> </swiper> </div> <script src="/historyToday/index.js"></script> 
-      </div>
-  </div>
-  
-
     
   </div>
 </aside>
@@ -1259,7 +1159,7 @@
 			clearInterval(this.time);
 		},
 		mounted() {
-			let prop = 'https://pica.zhimg.com/80/v2-a37e7cc018bcdede301c9530587dccb4_1440w.jpg' || 'https://luckyblob.oss-cn-shanghai.aliyuncs.com/postimgs/e440ed2814d9a99634d9390ef3cd228.jpg';
+			let prop = '' || 'https://luckyblob.oss-cn-shanghai.aliyuncs.com/postimgs/e440ed2814d9a99634d9390ef3cd228.jpg';
 			let isImg = prop.includes('.bmp') || prop.includes('.jpg') || prop.includes('.png') || prop.includes('.tif') || prop.includes('.gif') || prop.includes('.pcx') || prop.includes('.tga') || prop.includes('.exif') || prop.includes('.fpx') || prop.includes('.psd') || prop.includes('.cdr') || prop.includes('.pcd') || prop.includes('.dxf') || prop.includes('.ufo') || prop.includes('.eps') || prop.includes('.ai') || prop.includes('.raw') || prop.includes('.WMF') || prop.includes('.webp') || prop.includes('.jpeg') || prop.includes('http://') || prop.includes('https://')
 			if (isImg) {
 				let img = prop.split(',');
