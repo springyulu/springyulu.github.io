@@ -6,7 +6,7 @@
   <link href="https://springyulu.github.io/atom.xml" rel="self"/>
   
   <link href="https://springyulu.github.io/"/>
-  <updated>2023-05-09T10:08:03.245Z</updated>
+  <updated>2023-05-30T14:09:50.054Z</updated>
   <id>https://springyulu.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Ubuntu下修改docker默认数据存储路径</title>
+    <link href="https://springyulu.github.io/2023/05/30/update-docker-default-dir/"/>
+    <id>https://springyulu.github.io/2023/05/30/update-docker-default-dir/</id>
+    <published>2023-05-30T13:56:29.000Z</published>
+    <updated>2023-05-30T14:09:50.054Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Ubuntu下修改Docker默认存储路径&quot;&gt;&lt;a href=&quot;#Ubuntu下修改Docker默认存储路径&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>“水杉在线”-集成RocketMQ（二、自定义拦截器）</title>
