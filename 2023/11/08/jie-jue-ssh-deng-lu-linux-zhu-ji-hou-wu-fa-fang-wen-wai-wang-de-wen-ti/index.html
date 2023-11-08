@@ -11,7 +11,7 @@
   <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-  <title>Lucky&#39;s Resume | Spring Rain</title>
+  <title>解决ssh登录linux主机后无法访问外网的问题 | Spring Rain</title>
 
   <link rel="icon" type="image/jpeg" href="https://luckyblob.oss-cn-shanghai.aliyuncs.com/postimgs/1e38b34d7166675a2d78d8e1ae651b6.jpg">
   <link rel="stylesheet" href="https://at.alicdn.com/t/font_1911880_c1nvbyezg17.css">
@@ -610,17 +610,27 @@
 
 
 <div class="post-detail-header" id="thumbnail_canvas" style="background-repeat: no-repeat; background-size: cover; 
-  background-position: center center;position: relative;background-image:url('https://pic2.zhimg.com/v2-175be238e0e71c76a5b2504d6a9425e5_b.jpg')">
+  background-position: center center;position: relative;background-image:url('/medias/3.jpg')">
   <div class="post-detail-header-mask"></div>
   <canvas id="header_canvas"style="position:absolute;bottom:0;pointer-events:none;"></canvas>
   
   <div class="post-detail-header_info-box">
     <div class="title-box">
       <span class="title">
-        Lucky&#39;s Resume
+        解决ssh登录linux主机后无法访问外网的问题
       </span>
     </div>
     
+    
+      
+        <span class="post-detail-header_date">
+          <i class="fas fa-calendar"></i> 发表于：2023-11-08 |
+        </span>
+      
+
+      
+
+      
     
   </div>
   
@@ -638,7 +648,12 @@
   <div class="main-content">
     <article class="post post-detail">
       <div class="post-content">
-        <p><img src="https://luckyblob.oss-cn-shanghai.aliyuncs.com/postimgs/f0cac4992f466d7023cf858d3f7a187.png" class="lazyload placeholder" data-srcset="https://luckyblob.oss-cn-shanghai.aliyuncs.com/postimgs/f0cac4992f466d7023cf858d3f7a187.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp"></p>
+        <p>最近出现一个奇怪的问题就是我的linux主机可以访问google<br>But 我用ssh登陆后 无法访问goole！！！！！<br>几经波折<br>终于找到了原因<br>是<code>**iptables**</code>的问题</p>
+<h3 id="How-to-fix-it"><a href="#How-to-fix-it" class="headerlink" title="How to fix it"></a>How to fix it</h3><p>curl 或者 ping不通的话说明没有强制走代理 也就是ssh隧道没有走代理<br>我们可以试试强制走本机代理看看</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">root@thinkcentre:~# curl -x http://127.0.0.1:7890 -I https://www.google.com</span><br><span class="line">HTTP/1.1 200 Connection established</span><br><span class="line"></span><br><span class="line">......</span><br></pre></td></tr></table></figure>
+<p>当我们看到上述信息就说明确实是ssh没有走代理的原因</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">请在iptables中加规则</span></span><br><span class="line">sudo iptables -A OUTPUT -p tcp --dport 7890 -j ACCEPT</span><br></pre></td></tr></table></figure>
+<p>ok了</p>
 
       </div>
       <div class="post-tags-categories">
@@ -652,7 +667,7 @@
     </li>
     <li class="post-copyright-link">
     <strong>文章链接:  </strong>
-    <a href="/resume-phone/index.html" target="_blank" title="Lucky&#39;s Resume">https://springyulu.github.io/resume-phone/index.html</a>
+    <a href="/2023/11/08/jie-jue-ssh-deng-lu-linux-zhu-ji-hou-wu-fa-fang-wen-wai-wang-de-wen-ti/" target="_blank" title="解决ssh登录linux主机后无法访问外网的问题">https://springyulu.github.io/2023/11/08/jie-jue-ssh-deng-lu-linux-zhu-ji-hou-wu-fa-fang-wen-wai-wang-de-wen-ti/</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明:   </strong>
@@ -671,6 +686,23 @@
 
 
 
+
+  
+  <div class="post-nav-next post-nav-item">
+    <div class="post-nav-img" style="background-size: cover; 
+      background-position: center center;">
+      <img class="lazyload lazyload placeholder" src="/medias/3.jpg" class="lazyload placeholder" data-srcset="/medias/3.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" src="" alt="">
+    </div>
+    <a href="/2023/05/30/update-docker-default-dir/" class="post-nav-link">
+      <div class="title">
+        下一篇: <i class="fas fa-angle-right"></i>
+        <div class="title-text">Ubuntu下修改docker默认数据存储路径</div>
+      </div>
+      <!-- <div class="content">
+        Ubuntu下修改Docker默认存储路径事件起因：发现一个大问题，docker虽然用着很舒服，但是用的不好就会存在一个
+      </div> -->
+    </a>
+  </div>
 
 </div>
 
@@ -874,27 +906,29 @@
   <div class="layout_sticky">    
     
       
-        
+<section class="widget side_toc">
   
-      
-      
-        
-<section class="widget side_tagcloud">
-    
   <header>
     
-      <a style="color: " href='/tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
+      <i style="color: " class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
     
   </header>
 
 
-    <div class='content'>
-    <a href="/tags/Devops/" style="font-size: 14px; color: #999">Devops</a> <a href="/tags/Docker/" style="font-size: 14px; color: #999">Docker</a> <a href="/tags/config/" style="font-size: 14px; color: #999">config</a> <a href="/tags/k8s/" style="font-size: 24px; color: #555">k8s</a> <a href="/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6/" style="font-size: 19px; color: #777">中间件</a>
+  <div class='content'>
+    <div class="toc-main">
+      <div class="toc-content">
+        <!-- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#How-to-fix-it"><span class="toc-text">How to fix it</span></a></li></ol> -->
+        <div class="toc"></div>
+      </div>
     </div>
+  </div>
 </section>
+<!-- 手机端目录按钮 -->
+<div id="toc-mobile-btn">
+  <i class="fas fa-list-ul" aria-hidden="true"></i>
+</div>
 
-  
-      
       
   <section class="widget side_recent_post">
     
@@ -1020,156 +1054,6 @@
     </div>
   </section>
 
-      
-  <section class="widget side_archives">
-    
-    <header><a style="color: red" href='/archives/'><i class="fas fa-archive fa-fw" aria-hidden="true"></i><span class='name'>归档</span></a></header><div class="content"><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/11/"><span class="card-archive-list-date">十一月 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/05/"><span class="card-archive-list-date">五月 2023</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/04/"><span class="card-archive-list-date">四月 2023</span><span class="card-archive-list-count">4</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/03/"><span class="card-archive-list-date">三月 2023</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/02/"><span class="card-archive-list-date">二月 2023</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/01/"><span class="card-archive-list-date">一月 2023</span><span class="card-archive-list-count">2</span></a></li></ul></div>
-  </section>
-
-      <section class="widget side_webinfo">
-  
-  <header>
-    
-      <i style="color: " class="fas fa-chart-line fa-fw" aria-hidden="true"></i><span class='name'>站点信息</span>
-    
-  </header>
-
-
-  <div class='content'>
-    <div class="webinfo">
-      
-        <div class="webinfo-item">
-          <div>文章数目：</div>
-          <div>14 篇</div>
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>已运行时间：</div>
-          <div id="webinfo-runtime-count" publish_date="03/24/2020 21:34:09"></div>
-        </div>
-        <script>
-          var BirthDay = new Date(new Date('2020/01/01'));
-          var today = new Date();
-          var timeold = (today.getTime() - BirthDay.getTime());
-          var daysold = Math.floor(timeold / (24 * 60 * 60 * 1000));
-          document.getElementById('webinfo-runtime-count').innerHTML = daysold + ' 天';
-        </script>
-      
-
-
-      
-
-      
-        <div class="webinfo-item">
-          <div>本站访客数：</div>
-          
-          <div><span id="busuanzi_value_site_uv"><i class="fas fa-fan fa-spin fa-fw" aria-hidden="true"></i></span> 人</div>
-          
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>本站总访问量：</div>
-          
-          <div><span id="busuanzi_value_site_pv"><i class="fas fa-fan fa-spin fa-fw" aria-hidden="true"></i></span> 次</div>
-          
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>最后活动时间：</div>
-          
-            <div id="last-update" style="display: none;">Wed Nov 08 2023 16:31:21 GMT+0800 (中国标准时间)</div>
-            <div id="last-update-show">2023-11-08 日</div>
-          
-        </div>
-        
-        <script>
-          function timeago(dateTimeStamp) {
-              var minute = 1000 * 60; //把分，时，天，周，半个月，一个月用毫秒表示
-              var hour = minute * 60;
-              var day = hour * 24;
-              var week = day * 7;
-              var month = day * 30;
-              var now = new Date().getTime(); //获取当前时间毫秒
-              var diffValue = now - dateTimeStamp; //时间差
-              if (diffValue < 0) {
-                  return;
-              }
-              var minC = diffValue / minute; //计算时间差的分，时，天，周，月
-              var hourC = diffValue / hour;
-              var dayC = diffValue / day;
-              var weekC = diffValue / week;
-              var monthC = diffValue / month;
-              if (monthC >= 1 && monthC <= 3) {
-                  result = " " + parseInt(monthC) + " 月前"
-              } else if (weekC >= 1 && weekC <= 3) {
-                  result = " " + parseInt(weekC) + " 周前"
-              } else if (dayC >= 1 && dayC <= 6) {
-                  result = " " + parseInt(dayC) + " 天前"
-              } else if (hourC >= 1 && hourC <= 23) {
-                  result = " " + parseInt(hourC) + " 小时前"
-              } else if (minC >= 1 && minC <= 59) {
-                  result = " " + parseInt(minC) + " 分钟前"
-              } else if (diffValue >= 0 && diffValue <= minute) {
-                  result = "刚刚"
-              } else {
-                  var datetime = new Date();
-                  datetime.setTime(dateTimeStamp);
-                  var Nyear = datetime.getFullYear();
-                  var Nmonth = datetime.getMonth() + 1 < 10 ? "0" + (datetime.getMonth() + 1) : datetime.getMonth() + 1;
-                  var Ndate = datetime.getDate() < 10 ? "0" + datetime.getDate() : datetime.getDate();
-                  var Nhour = datetime.getHours() < 10 ? "0" + datetime.getHours() : datetime.getHours();
-                  var Nminute = datetime.getMinutes() < 10 ? "0" + datetime.getMinutes() : datetime.getMinutes();
-                  var Nsecond = datetime.getSeconds() < 10 ? "0" + datetime.getSeconds() : datetime.getSeconds();
-                  result = Nyear + "-" + Nmonth + "-" + Ndate
-              }
-              return result;
-          }
-          var lastUpDate = document.getElementById('last-update').innerHTML;
-          try {
-            document.getElementById('last-update-show').innerHTML = timeago(new Date(lastUpDate));
-          } catch (error) {
-            document.getElementById('last-update-show').innerHTML = '2023-11-08 日';
-          }
-        </script>
-        
-      
-    </div>
-  </div>
-</section>
-      
-  
-    <div class="widget testWidget" id="testWidget" style="order: -1;background: #fff">
-      <header>
-        
-          <a style="color: #d63130" target="_blank" rel="noopener" href='http://baidu.com'><i class="fab fa-weibo fa-fw" aria-hidden="true"></i><span class='name'>微博热搜</span></a>
-        
-      </header>
-      <div class="content">
-        <div id="myWeibo">
-<!-- 如果不要滚动，则去掉 vue-seamless-scroll标签就行了，这个插件使用cdn向左向右滚动好像有问题 -->
-<vue-seamless-scroll :data="content" :class-option="classOption" class="warp" > <div class="weibo-container" v-for="(item, index) in content" :key="index"> <div class="left"> <div class="order" :class="{ red: index<=2 }">{{index + 1}}</div> <div class="name"><a :href="item.url" target="_blank">{{item.name}}</a></div> </div> <div class="hot">{{item.hot}}</div> </div> </vue-seamless-scroll> </div>
-<script src="/weibo/index.js"></script> <link href="/weibo/index.css" rel="stylesheet"> 
-      </div>
-  </div>
-  
-    <div class="widget historyToday" id="historyToday" style="order: 0;background: #fff">
-      <header>
-        
-          <a style="color: #d63130" target="_blank" rel="noopener" href='http://baidu.com'><i class="fas fa-calendar-week fa-fw" aria-hidden="true"></i><span class='name'>历史上的今天</span></a>
-        
-      </header>
-      <div class="content">
-         <div id="myHistorySwiper" @mouseenter="stopAutoPlay()" @mouseleave="startAutoPlay()"> <swiper class="myhistoryswiper" ref="myhistoryswiper" style="height:80px;" :options="swiperOption"> <swiper-slide v-for="(item, index) in content" :key="index"> {{item}} </swiper-slide> </swiper> </div> <script src="/historyToday/index.js"></script> 
-      </div>
-  </div>
-  
-
     
   </div>
 </aside>
@@ -1252,7 +1136,7 @@
 			clearInterval(this.time);
 		},
 		mounted() {
-			let prop = 'https://pica.zhimg.com/80/v2-a37e7cc018bcdede301c9530587dccb4_1440w.jpg' || 'https://luckyblob.oss-cn-shanghai.aliyuncs.com/postimgs/e440ed2814d9a99634d9390ef3cd228.jpg';
+			let prop = '' || 'https://luckyblob.oss-cn-shanghai.aliyuncs.com/postimgs/e440ed2814d9a99634d9390ef3cd228.jpg';
 			let isImg = prop.includes('.bmp') || prop.includes('.jpg') || prop.includes('.png') || prop.includes('.tif') || prop.includes('.gif') || prop.includes('.pcx') || prop.includes('.tga') || prop.includes('.exif') || prop.includes('.fpx') || prop.includes('.psd') || prop.includes('.cdr') || prop.includes('.pcd') || prop.includes('.dxf') || prop.includes('.ufo') || prop.includes('.eps') || prop.includes('.ai') || prop.includes('.raw') || prop.includes('.WMF') || prop.includes('.webp') || prop.includes('.jpeg') || prop.includes('http://') || prop.includes('https://')
 			if (isImg) {
 				let img = prop.split(',');
