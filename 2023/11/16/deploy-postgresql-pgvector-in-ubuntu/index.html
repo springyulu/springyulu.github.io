@@ -11,7 +11,7 @@
   <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-  <title>chatgpt使用教程 | Spring Rain</title>
+  <title>Spring Rain</title>
 
   <link rel="icon" type="image/jpeg" href="https://luckyblob.oss-cn-shanghai.aliyuncs.com/postimgs/1e38b34d7166675a2d78d8e1ae651b6.jpg">
   <link rel="stylesheet" href="https://at.alicdn.com/t/font_1911880_c1nvbyezg17.css">
@@ -610,21 +610,21 @@
 
 
 <div class="post-detail-header" id="thumbnail_canvas" style="background-repeat: no-repeat; background-size: cover; 
-  background-position: center center;position: relative;background-image:url('https://luckyblob.oss-cn-shanghai.aliyuncs.com/postimgs/image-20230212211052395.png')">
+  background-position: center center;position: relative;background-image:url('/medias/1.jpg')">
   <div class="post-detail-header-mask"></div>
   <canvas id="header_canvas"style="position:absolute;bottom:0;pointer-events:none;"></canvas>
   
   <div class="post-detail-header_info-box">
     <div class="title-box">
       <span class="title">
-        chatgpt使用教程
+        
       </span>
     </div>
     
     
       
         <span class="post-detail-header_date">
-          <i class="fas fa-calendar"></i> 发表于：2023-02-12 |
+          <i class="fas fa-calendar"></i> 发表于：2023-11-16 |
         </span>
       
 
@@ -648,22 +648,56 @@
   <div class="main-content">
     <article class="post post-detail">
       <div class="post-content">
-        <h1 id="chatGPT使用教程"><a href="#chatGPT使用教程" class="headerlink" title="chatGPT使用教程"></a>chatGPT使用教程</h1><p><img src="https://luckyblob.oss-cn-shanghai.aliyuncs.com/postimgs/image-20230212211052395.png" class="lazyload placeholder" data-srcset="https://luckyblob.oss-cn-shanghai.aliyuncs.com/postimgs/image-20230212211052395.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="image-20230212211052395"></p>
-<p>chatgpt官网：<a target="_blank" rel="noopener" href="https://openai.com/blog/chatgpt/">https://openai.com/blog/chatgpt/</a></p>
-<p>注册或者使用Google or Microsoft账户登陆即可 （I have used a google account which I have several years ago.）</p>
-<p>当提示此地区不可用或者不提供服务的情况</p>
-<p>梯子改为全局 地区不要选HK，我用的Korea</p>
-<p>修改为全局后，在浏览器地址栏输入如下代码：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 注意<span class="attr">javascript</span>: 要手动输入 无法复制</span><br><span class="line"><span class="attr">javascript</span>:<span class="variable language_">window</span>.<span class="property">localStorage</span>.<span class="title function_">removeItem</span>(<span class="title class_">Object</span>.<span class="title function_">keys</span>(<span class="variable language_">window</span>.<span class="property">localStorage</span>).<span class="title function_">find</span>(<span class="function"><span class="params">i</span>=&gt;</span>i.<span class="title function_">startsWith</span>(<span class="string">&#x27;@@auth0spajs&#x27;</span>)))</span><br></pre></td></tr></table></figure>
+        <h1 id="在Ubuntu22-04上部署postgresql-amp-pgvector"><a href="#在Ubuntu22-04上部署postgresql-amp-pgvector" class="headerlink" title="在Ubuntu22.04上部署postgresql&amp;pgvector"></a>在Ubuntu22.04上部署postgresql&amp;pgvector</h1><h2 id="1、安装Postgresql"><a href="#1、安装Postgresql" class="headerlink" title="1、安装Postgresql"></a>1、安装Postgresql</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt install postgresql postgresql-contrib</span><br></pre></td></tr></table></figure>
 
-<p>然后回车 再刷新当前页面即可进入chatgpt短信验证部分</p>
-<p>短信服务购买：<a target="_blank" rel="noopener" href="https://sms-activate.org/">https://sms-activate.org/</a></p>
-<p>最近一直在涨价，我选的是马来西亚</p>
-<p>亲测可用 越晚涨价越离谱</p>
-<h5 id="使用案例"><a href="#使用案例" class="headerlink" title="使用案例"></a>使用案例</h5><p><img src="https://luckyblob.oss-cn-shanghai.aliyuncs.com/postimgs/image-20230212210012744.png" class="lazyload placeholder" data-srcset="https://luckyblob.oss-cn-shanghai.aliyuncs.com/postimgs/image-20230212210012744.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="image-20230212210012744"></p>
-<p>When you have finished these steps.You can use chatgpt happily now !!!</p>
-<h5 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h5><p>地区不提供服务解决方法：<a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/2190198">https://cloud.tencent.com/developer/article/2190198</a></p>
-<p>短信验证解决方案：<a target="_blank" rel="noopener" href="https://www.xnbeast.com/create-openai-chatgpt-account/">https://www.xnbeast.com/create-openai-chatgpt-account/</a></p>
+<h2 id="默认用户postgres进入psql"><a href="#默认用户postgres进入psql" class="headerlink" title="默认用户postgres进入psql"></a>默认用户postgres进入psql</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo -u postgres psql</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">退出 \q</span></span><br></pre></td></tr></table></figure>
+
+<p>通常，<code>postgres</code>用户仅仅在本地被使用。</p>
+<h2 id="2、创建-PostgreSQL-角色和数据库"><a href="#2、创建-PostgreSQL-角色和数据库" class="headerlink" title="2、创建 PostgreSQL 角色和数据库"></a>2、创建 PostgreSQL 角色和数据库</h2><p>仅仅超级用户和拥有<code>CREATEROLE</code>权限的角色可以创建新角色。</p>
+<p>在下面的例子中，我们创建一个名称为<code>john</code>的角色，一个名称为<code>johndb</code>的数据库，并且授予数据库上的权限：</p>
+<p>01.创建一个新的 PostgreSQL 角色：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo su - postgres -c &quot;createuser testuser&quot;</span><br></pre></td></tr></table></figure>
+
+<p>02.创建一个新的 PostgreSQL 数据库：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo su - postgres -c &quot;createdb testdb&quot;</span><br></pre></td></tr></table></figure>
+
+<p>想要授权用户操作数据库，连接到 PostgreSQL shell:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo -u postgres psql</span><br></pre></td></tr></table></figure>
+
+<p>并且运行下面的 query:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grant all privileges on database johndb to testuser;</span><br></pre></td></tr></table></figure>
+
+<h2 id="3、启用远程访问-PostgreSQL-服务器"><a href="#3、启用远程访问-PostgreSQL-服务器" class="headerlink" title="3、启用远程访问 PostgreSQL 服务器"></a>3、启用远程访问 PostgreSQL 服务器</h2><p>默认情况下，PostgreSQL 服务器仅仅监听本地网络接口：<code>127.0.0.1</code>。</p>
+<p>为了允许远程访问你的 PostgreSQL 服务器，打开配置文件<code>postgresql.conf</code>并且在<code>CONNECTIONS AND AUTHENTICATION</code>一节添加<code>listen_addresses = &#39;*&#39;</code>。我的配置文件所在目录<code>etc/postgresql/14/main/postgresql.conf</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/postgresql/14/main/postgresql.conf</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">------------------------------------------------------------------------------</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">CONNECTIONS AND AUTHENTICATION</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">------------------------------------------------------------------------------</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">- Connection Settings -</span></span><br><span class="line"></span><br><span class="line">listen_addresses = &#x27;*&#x27;     # what IP address(es) to listen on;</span><br></pre></td></tr></table></figure>
+
+<p>保存文件并且重启 PostgreSQL 服务：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo service postgresql restart</span><br></pre></td></tr></table></figure>
+
+<p>使用<code>ss</code>工具验证修改：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ss -nlt | grep 5432</span><br></pre></td></tr></table></figure>
+
+<p>输出显示 PostgreSQL 服务器正在监听所有的网络接口(<code>0.0.0.0</code>):</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">LISTEN  0        244              0.0.0.0:5432           0.0.0.0:*              </span><br><span class="line">LISTEN  0        244                 [::]:5432              [::]:*</span><br></pre></td></tr></table></figure>
+
+<p>编辑<code>pg_hba.conf</code>文件。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">TYPE  DATABASE        USER            ADDRESS                 METHOD</span></span><br><span class="line">host    all             testuser        0.0.0.0/0                md5</span><br></pre></td></tr></table></figure>
+
+<p>最后一步就是在你的防火墙上打开端口<code>5432</code>端口。</p>
+<h2 id="4、安装pgvector插件"><a href="#4、安装pgvector插件" class="headerlink" title="4、安装pgvector插件"></a>4、安装pgvector插件</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cd /tmp</span><br><span class="line">git clone --branch v0.5.1 https://github.com/pgvector/pgvector.git</span><br><span class="line">cd pgvector</span><br><span class="line">make</span><br><span class="line">make install # may need sudo</span><br></pre></td></tr></table></figure>
+
+<p>如果在<code>make</code>时出现了<code>postgres.h</code>不存在的报错</p>
+<p>For Ubuntu and Debian, use:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install postgresql-server-dev-14</span><br></pre></td></tr></table></figure>
+
+<p>Note: Replace <code>15</code> with your Postgres server version    我的版本是14</p>
+<h3 id="Started"><a href="#Started" class="headerlink" title="Started"></a>Started</h3><p>切换到指定数据库<code>create</code>这个插件<code>\c testdb;</code>   切换用户<code> \c - testuser;</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">root@thinkcentre:~/tmp/pgvector# sudo -u postgres psql</span><br><span class="line">could not change directory to &quot;/root/tmp/pgvector&quot;: 权限不够</span><br><span class="line">psql (14.9 (Ubuntu 14.9-0ubuntu0.22.04.1))</span><br><span class="line">Type &quot;help&quot; for help.</span><br><span class="line"></span><br><span class="line">postgres=# \c testdb;</span><br><span class="line">You are now connected to database &quot;testdb&quot; as user &quot;postgres&quot;.</span><br><span class="line">testdb=# CREATE EXTENSION vector;</span><br><span class="line">CREATE EXTENSION</span><br><span class="line">testdb=#</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h4><p><strong><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/143156636">https://zhuanlan.zhihu.com/p/143156636</a></strong></p>
+<p><strong><a target="_blank" rel="noopener" href="https://github.com/pgvector/pgvector#installation-notes">https://github.com/pgvector/pgvector#installation-notes</a></strong></p>
 
       </div>
       <div class="post-tags-categories">
@@ -677,7 +711,7 @@
     </li>
     <li class="post-copyright-link">
     <strong>文章链接:  </strong>
-    <a href="/2023/02/12/chatgpt-shi-yong-jiao-cheng/" target="_blank" title="chatgpt使用教程">https://springyulu.github.io/2023/02/12/chatgpt-shi-yong-jiao-cheng/</a>
+    <a href="/2023/11/16/deploy-postgresql-pgvector-in-ubuntu/" target="_blank" title="">https://springyulu.github.io/2023/11/16/deploy-postgresql-pgvector-in-ubuntu/</a>
     </li>
     <li class="post-copyright-license">
       <strong>版权声明:   </strong>
@@ -695,44 +729,21 @@
 
 
 
-  
-  <div class="post-nav-prev post-nav-item">
-    <div class="post-nav-img" style="background-size: cover; 
-      background-position: center center;">
-      <img class="lazyload lazyload placeholder" src="https://luckyblob.oss-cn-shanghai.aliyuncs.com/postimgs/image-20230218213701529.png" class="lazyload placeholder" data-srcset="https://luckyblob.oss-cn-shanghai.aliyuncs.com/postimgs/image-20230218213701529.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
-    </div>
-    <a href="/2023/02/18/frp-nei-wang-chuan-tou-jiao-cheng/" class="post-nav-link">
-      <div class="title">
-        <i class="fas fa-angle-left"></i> 上一篇:
-        <div class="title-text">frp内网穿透教程</div>
-      </div>
-      
-      <!-- <div class="content">
-        frp搭建内网穿透教程
-
-我们用过服务器的同学都知道ssh，就是一个远程连接服务器的协议，如果是对于实验室的电脑则需要在
-      </div> -->
-    </a>
-  </div>
-
 
 
   
   <div class="post-nav-next post-nav-item">
     <div class="post-nav-img" style="background-size: cover; 
       background-position: center center;">
-      <img class="lazyload lazyload placeholder" src="https://luckyblob.oss-cn-shanghai.aliyuncs.com/postimgs/image-20230115202715679.png" class="lazyload placeholder" data-srcset="https://luckyblob.oss-cn-shanghai.aliyuncs.com/postimgs/image-20230115202715679.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" src="" alt="">
+      <img class="lazyload lazyload placeholder" src="/medias/3.jpg" class="lazyload placeholder" data-srcset="/medias/3.jpg" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" src="" alt="">
     </div>
-    <a href="/2023/01/15/k8s-xue-xi-jiao-cheng-ji-chu-pei-zhi-part-1/" class="post-nav-link">
+    <a href="/2023/11/08/jie-jue-ssh-deng-lu-linux-zhu-ji-hou-wu-fa-fang-wen-wai-wang-de-wen-ti/" class="post-nav-link">
       <div class="title">
         下一篇: <i class="fas fa-angle-right"></i>
-        <div class="title-text">k8s学习教程(基础配置)--part 1</div>
+        <div class="title-text">解决ssh登录linux主机后无法访问外网的问题</div>
       </div>
       <!-- <div class="content">
-        k8s学习教程（一、初始配置）
-
-1 minikube 启动过程在启动之前，需要下载docker！！！
-1.1 mini
+        最近出现一个奇怪的问题就是我的linux主机可以访问googleBut 我用ssh登陆后 无法访问goole！！！！！几
       </div> -->
     </a>
   </div>
@@ -951,7 +962,7 @@
   <div class='content'>
     <div class="toc-main">
       <div class="toc-content">
-        <!-- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#chatGPT%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B"><span class="toc-text">chatGPT使用教程</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E6%A1%88%E4%BE%8B"><span class="toc-text">使用案例</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%8F%82%E8%80%83%EF%BC%9A"><span class="toc-text">参考：</span></a></li></ol></li></ol></li></ol></li></ol></li></ol> -->
+        <!-- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9C%A8Ubuntu22-04%E4%B8%8A%E9%83%A8%E7%BD%B2postgresql-amp-pgvector"><span class="toc-text">在Ubuntu22.04上部署postgresql&amp;pgvector</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1%E3%80%81%E5%AE%89%E8%A3%85Postgresql"><span class="toc-text">1、安装Postgresql</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%BB%98%E8%AE%A4%E7%94%A8%E6%88%B7postgres%E8%BF%9B%E5%85%A5psql"><span class="toc-text">默认用户postgres进入psql</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%E3%80%81%E5%88%9B%E5%BB%BA-PostgreSQL-%E8%A7%92%E8%89%B2%E5%92%8C%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-text">2、创建 PostgreSQL 角色和数据库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3%E3%80%81%E5%90%AF%E7%94%A8%E8%BF%9C%E7%A8%8B%E8%AE%BF%E9%97%AE-PostgreSQL-%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-text">3、启用远程访问 PostgreSQL 服务器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4%E3%80%81%E5%AE%89%E8%A3%85pgvector%E6%8F%92%E4%BB%B6"><span class="toc-text">4、安装pgvector插件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Started"><span class="toc-text">Started</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%82%E8%80%83"><span class="toc-text">参考</span></a></li></ol></li></ol></li></ol></li></ol> -->
         <div class="toc"></div>
       </div>
     </div>

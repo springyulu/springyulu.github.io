@@ -6,7 +6,7 @@
   <link href="https://springyulu.github.io/atom.xml" rel="self"/>
   
   <link href="https://springyulu.github.io/"/>
-  <updated>2023-11-08T08:31:15.910Z</updated>
+  <updated>2023-11-16T12:11:15.524Z</updated>
   <id>https://springyulu.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="https://springyulu.github.io/2023/11/16/deploy-postgresql-pgvector-in-ubuntu/"/>
+    <id>https://springyulu.github.io/2023/11/16/deploy-postgresql-pgvector-in-ubuntu/</id>
+    <published>2023-11-16T11:53:05.465Z</published>
+    <updated>2023-11-16T12:11:15.524Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;在Ubuntu22-04上部署postgresql-amp-pgvector&quot;&gt;&lt;a href=&quot;#在Ubuntu22-04上部署postgresql-amp-pgvector&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>解决ssh登录linux主机后无法访问外网的问题</title>
