@@ -648,13 +648,8 @@
   <div class="main-content">
     <article class="post post-detail">
       <div class="post-content">
-        <p>最近出现一个奇怪的问题就是我的linux主机可以访问google<br>But 我用ssh登陆后 无法访问goole！！！！！<br>几经波折<br>终于找到了原因<br>是<code>**iptables**</code>的问题</p>
-<h3 id="How-to-fix-it"><a href="#How-to-fix-it" class="headerlink" title="How to fix it"></a>How to fix it</h3><p>curl 或者 ping不通的话说明没有强制走代理 也就是ssh隧道没有走代理<br>我们可以试试强制走本机代理看看</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">root@thinkcentre:~# curl -x http://127.0.0.1:7890 -I https://www.google.com</span><br><span class="line">HTTP/1.1 200 Connection established</span><br><span class="line"></span><br><span class="line">......</span><br></pre></td></tr></table></figure>
-<p>当我们看到上述信息就说明确实是ssh没有走代理的原因</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">请在iptables中加规则</span></span><br><span class="line">sudo iptables -A OUTPUT -p tcp --dport 7890 -j ACCEPT</span><br></pre></td></tr></table></figure>
-<p>ok了</p>
-
+        <p><strong>简言之：我忘了export代理环境变量了</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/profile</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">http_proxy</span></span><br><span class="line">export http_proxy=http://127.0.0.1:7890</span><br><span class="line">export https_proxy=http://127.0.0.1:7890</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">保存后</span></span><br><span class="line">source /etc/profile</span><br></pre></td></tr></table></figure>
       </div>
       <div class="post-tags-categories">
         
@@ -936,7 +931,7 @@
   <div class='content'>
     <div class="toc-main">
       <div class="toc-content">
-        <!-- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#How-to-fix-it"><span class="toc-text">How to fix it</span></a></li></ol> -->
+        <!--  -->
         <div class="toc"></div>
       </div>
     </div>
