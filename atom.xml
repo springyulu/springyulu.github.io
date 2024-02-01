@@ -6,7 +6,7 @@
   <link href="https://springyulu.github.io/atom.xml" rel="self"/>
   
   <link href="https://springyulu.github.io/"/>
-  <updated>2023-12-17T08:52:11.997Z</updated>
+  <updated>2024-02-01T06:27:15.982Z</updated>
   <id>https://springyulu.github.io/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Github Actions + Docker实现CI/CD</title>
+    <link href="https://springyulu.github.io/2024/02/01/github-actions-docker-shi-xian-ci-cd/"/>
+    <id>https://springyulu.github.io/2024/02/01/github-actions-docker-shi-xian-ci-cd/</id>
+    <published>2024-02-01T06:27:01.000Z</published>
+    <updated>2024-02-01T06:27:15.982Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;Github-Actions-amp-Docker实现-CI-x2F-CD&quot;&gt;&lt;a href=&quot;#Github-Actions-amp-Docker实现-CI-x2F-CD&quot; class=&quot;headerlink&quot; title=&quot;Github Actions</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>在Ubuntu22.04上部署postgresql&amp;pgvector</title>
